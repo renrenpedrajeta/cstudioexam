@@ -4,15 +4,15 @@
   "title": "Best Chocolate Chip Cookies (Community Enhanced)",
   "ingredients": [
     "1 cup butter, softened",
-    "1 cup white sugar",
-    "1 cup packed brown sugar",
+    "1 cup white sugar and 1/2 cup white sugar",
+    "1/2 cup packed brown sugar",
     "2 eggs",
-    "1 additional egg yolk",
     "2 teaspoons vanilla extract",
     "1 teaspoon baking soda",
     "2 teaspoons hot water",
+    "1/4 teaspoon cinnamon",
     "0.5 teaspoon salt",
-    "3 cups all-purpose flour",
+    "2.5 cups all-purpose flour",
     "2 cups semisweet chocolate chips",
     "1 cup chopped walnuts"
   ],
@@ -30,34 +30,52 @@
   "modifications_applied": [
     {
       "source_review": {
-        "text": "I used an ice cream scoop, that made 16 big cookies. I did add an additional egg yolk to help keep the cookie chewy.They turned out fantastic.",
+        "text": "I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!",
         "reviewer": null,
         "rating": 5
       },
-      "modification_type": "addition",
-      "reasoning": "Adding an additional egg yolk helps keep the cookies chewy, improving their texture.",
+      "modification_type": "quantity_adjustment",
+      "reasoning": "The user adjusted the quantities of sugar and flour to their preference, resulting in a crispy edges and gooey center texture.",
       "changes_made": [
         {
           "type": "ingredient",
+          "from_text": "1 cup white sugar",
+          "to_text": "1 cup white sugar and 1/2 cup white sugar",
+          "operation": "replace"
+        },
+        {
+          "type": "ingredient",
+          "from_text": "1 cup packed brown sugar",
+          "to_text": "1/2 cup packed brown sugar",
+          "operation": "replace"
+        },
+        {
+          "type": "ingredient",
+          "from_text": "3 cups all-purpose flour",
+          "to_text": "2.5 cups all-purpose flour",
+          "operation": "replace"
+        },
+        {
+          "type": "ingredient",
           "from_text": "",
-          "to_text": "1 additional egg yolk",
+          "to_text": "1/4 teaspoon cinnamon",
           "operation": "add"
         }
       ]
     }
   ],
   "enhancement_summary": {
-    "total_changes": 1,
+    "total_changes": 4,
     "change_types": [
-      "addition"
+      "quantity_adjustment"
     ],
-    "expected_impact": "Adding an additional egg yolk helps keep the cookies chewy, improving their texture."
+    "expected_impact": "The user adjusted the quantities of sugar and flour to their preference, resulting in a crispy edges and gooey center texture."
   },
   "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
   "servings": "48",
   "prep_time": null,
   "cook_time": null,
   "total_time": null,
-  "created_at": "2025-09-25T01:38:11.806705",
+  "created_at": "2026-09-10T20:32:46.906079",
   "pipeline_version": "1.0.0"
 }

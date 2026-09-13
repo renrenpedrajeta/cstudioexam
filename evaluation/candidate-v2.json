@@ -1,0 +1,609 @@
+{
+  "phase": "candidate-v2",
+  "created_at": "2026-09-13T09:20:58.151606+00:00",
+  "model": "gpt-3.5-turbo",
+  "temperature": 0.1,
+  "application_retries": 0,
+  "sdk_retries": 0,
+  "source_sha256": {
+    "src/llm_pipeline/prompts.py": "2ebe71053c5ae71ec6e2ad2658bd2af5f5cb3d9cefe43ba2c8cc9a05ecc875d9",
+    "src/llm_pipeline/recipe_modifier.py": "cdaad2112e2c7b2f02dbd008bba77054fbede2f21290229982e65b18ec6b741e",
+    "src/llm_pipeline/tweak_extractor.py": "37b280c50c266f297de3ec9a39e603e56aff46700e01e2b4f0f9d7dba87df041",
+    "evaluation/cases.json": "c839a4d175b85120bdd4241e97232bedc2bc03e8e41fb8ba09149fb8f927da73"
+  },
+  "cases": [
+    {
+      "id": "cookie_cinnamon",
+      "expected": [
+        "White sugar remains 1 cup; brown sugar becomes 0.5 cup; flour becomes 2.5 cups.",
+        "Preserve tiny dash of cinnamon without inventing numeric quantity; include cinnamon in mixing instructions.",
+        "All other content preserved."
+      ],
+      "plan": {
+        "modification_type": "quantity_adjustment",
+        "reasoning": "The reviewer adjusted the quantities of white sugar, brown sugar, and flour to suit their preferences.",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1 cup white sugar",
+            "replace": "1 cup white sugar and 1/2 cup white sugar",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1 cup packed brown sugar",
+            "replace": "1/2 cup packed brown sugar",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "3 cups all-purpose flour",
+            "replace": "2.5 cups all-purpose flour",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "add_after",
+            "find": "2 teaspoons hot water",
+            "replace": null,
+            "add": "1 dash of cinnamon"
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "10813_modified",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar and 1/2 cup white sugar",
+            "1/2 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "1 dash of cinnamon",
+            "0.5 teaspoon salt",
+            "2.5 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "1 cup white sugar",
+            "to_text": "1 cup white sugar and 1/2 cup white sugar",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "1 cup packed brown sugar",
+            "to_text": "1/2 cup packed brown sugar",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "3 cups all-purpose flour",
+            "to_text": "2.5 cups all-purpose flour",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "",
+            "to_text": "1 dash of cinnamon",
+            "operation": "add"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    },
+    {
+      "id": "cookie_nuts",
+      "expected": [
+        "Remove walnuts ingredient and walnuts from mixing instruction; preserve flour and chocolate chips."
+      ],
+      "plan": {
+        "modification_type": "removal",
+        "reasoning": "The user omitted walnuts entirely.",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "remove",
+            "find": "1 cup chopped walnuts",
+            "replace": null,
+            "add": null
+          },
+          {
+            "target": "instructions",
+            "operation": "replace",
+            "find": "Stir in flour, chocolate chips, and walnuts.",
+            "replace": "Stir in flour and chocolate chips.",
+            "add": null
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "10813_modified",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour and chocolate chips.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "1 cup chopped walnuts",
+            "to_text": "",
+            "operation": "remove"
+          },
+          {
+            "type": "instruction",
+            "from_text": "Stir in flour, chocolate chips, and walnuts.",
+            "to_text": "Stir in flour and chocolate chips.",
+            "operation": "replace"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    },
+    {
+      "id": "cookie_two_changes",
+      "expected": [
+        "White sugar 0.5 cup; eggs 3; everything else unchanged."
+      ],
+      "plan": {
+        "modification_type": "quantity_adjustment",
+        "reasoning": "The user adjusted the quantity of white sugar and eggs for personal preference.",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1 cup white sugar",
+            "replace": "half a cup white sugar",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "2 eggs",
+            "replace": "three eggs",
+            "add": null
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "10813_modified",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "half a cup white sugar",
+            "1 cup packed brown sugar",
+            "three eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "1 cup white sugar",
+            "to_text": "half a cup white sugar",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "2 eggs",
+            "to_text": "three eggs",
+            "operation": "replace"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    },
+    {
+      "id": "soup_future",
+      "expected": [
+        "No edits: future intention to use ginger is not a performed change."
+      ],
+      "plan": {
+        "modification_type": "ingredient_substitution",
+        "reasoning": "To enhance the ginger flavor of the soup",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1.5 teaspoons ground ginger",
+            "replace": "fresh ginger",
+            "add": null
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "77935_modified",
+          "title": "Creamy Sweet Potato With Ginger Soup",
+          "ingredients": [
+            "2 tablespoons olive oil",
+            "1.5 pounds peeled raw sweet potatoes, cut into 1-inch chunks",
+            "1 large onion, cut into large dice",
+            "1 tablespoon butter",
+            "1 pinch sugar",
+            "3 large garlic cloves, thickly sliced",
+            "fresh ginger",
+            "0.5 teaspoon ground nutmeg",
+            "0.125 teaspoon cayenne pepper",
+            "3 cups chicken broth, homemade or from a carton or can",
+            "1.5 cups half-and-half (or whole milk)",
+            "Salt and freshly ground pepper, to taste",
+            "Garnish: chopped honey-roasted peanuts"
+          ],
+          "instructions": [
+            "Gather the ingredients.",
+            "Heat oil over medium-high heat in a large, deep saute pan until shimmering. Add sweet potatoes, then onion; saute, stirring very little at first, then more frequently, until vegetables start to turn golden brown, 7 to 8 minutes.",
+            "Reduce heat to low and add butter, sugar and garlic; continue cooking until all vegetables are a rich spotty caramel color, about 10 minutes longer.",
+            "Add ginger, nutmeg and cayenne pepper; continue to saute until fragrant, 30 seconds to 1 minute longer.",
+            "Add broth; bring to a simmer over medium-high heat. Reduce heat to low and simmer, partially covered, until sweet potatoes are tender, about 10 minutes.",
+            "Using an immersion blender or traditional blender, puree until very smooth, 30 seconds to 1 minute. (If using a traditional blender, vent it either by removing the lid&#39;s pop-out center or by lifting one edge of the lid. Drape the blender canister with a kitchen towel. To &#39;clean&#39; the canister, pour in a little half-and-half, blend briefly, then add to the soup.)",
+            "Return to pan (or a soup pot); add enough half-and-half so the mixture is souplike, yet thick enough to float garnish. Taste, and add salt and pepper if needed. Heat through, ladle into bowls, garnish and serve."
+          ],
+          "description": "Made with sweet potatoes and seasoned with ginger, nutmeg, and cayenne pepper, this creamy soup is topped with honey-roasted peanuts.",
+          "servings": "8",
+          "rating": {
+            "value": "4.6",
+            "count": "87"
+          }
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "1.5 teaspoons ground ginger",
+            "to_text": "fresh ginger",
+            "operation": "replace"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    },
+    {
+      "id": "cake_ambiguous",
+      "expected": [
+        "No edits: brown, white and frosting sugar make target ambiguous; explain ambiguity."
+      ],
+      "plan": {
+        "modification_type": "quantity_adjustment",
+        "reasoning": "The user reduced the amount of sugar in the recipe.",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1 cup brown sugar",
+            "replace": "0.5 cup brown sugar",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "0.25 cup white sugar",
+            "replace": "0.125 cup white sugar",
+            "add": null
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "19117_modified",
+          "title": "Spicy Apple Cake",
+          "ingredients": [
+            "1.5 cups all-purpose flour",
+            "1 teaspoon ground cinnamon",
+            "1 teaspoon baking powder",
+            "0.5 teaspoon baking soda",
+            "0.5 teaspoon salt",
+            "0.5 teaspoon ground nutmeg",
+            "0.5 cup brown sugar",
+            "0.5 cup shortening",
+            "0.125 cup white sugar",
+            "2 eggs",
+            "1 teaspoon vanilla extract",
+            "0.5 cup milk",
+            "2 cups apple - peeled, cored, and chopped",
+            "2 cups sifted confectioners' sugar",
+            "0.25 cup shortening",
+            "0.25 teaspoon ground cinnamon",
+            "1 pinch ground nutmeg",
+            "0.25 cup evaporated milk"
+          ],
+          "instructions": [
+            "Preheat the oven to 350 degrees F (175 degrees C). Grease and flour a 9-inch square pan.",
+            "Sift together flour, 1 teaspoon cinnamon, baking powder, baking soda, salt, and nutmeg. Set aside.",
+            "Cream brown sugar, 1/2 cup shortening, and white sugar together in a large bowl until light and fluffy. Beat in eggs one at a time, then stir in vanilla. Beat in flour mixture alternately with milk, mixing until just combined. Stir in chopped apples.",
+            "Spread batter evenly in the prepared pan. Bake in the preheated oven until a toothpick inserted into the center of cake comes out clean, 35 to 40 minutes. Let cool.",
+            "Combine confectioners&#39; sugar, 1/4 cup shortening, 1/4 teaspoon cinnamon, and nutmeg in a medium bowl. Beat until frosting is light and creamy. Beat in evaporated milk 1 tablespoon at a time until desired spreading consistency is reached. Spread over top of cooled cake."
+          ],
+          "description": "This delicious spicy apple cake recipe is made with fresh apples, spices, and sugar. It&#39;s a wonderfully perfect treat for the apple harvest season.",
+          "servings": "9",
+          "rating": {
+            "value": "4.7",
+            "count": "79"
+          }
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "1 cup brown sugar",
+            "to_text": "0.5 cup brown sugar",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "0.25 cup white sugar",
+            "to_text": "0.125 cup white sugar",
+            "operation": "replace"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    },
+    {
+      "id": "cookie_numbered",
+      "expected": [
+        "Capture white sugar 0.5 cup, brown sugar 1.5 cups, omit water, add 1 tsp cream of tartar, chill at least one hour.",
+        "Update water-dependent and cream-of-tartar instructions; keep unrelated recipe content."
+      ],
+      "plan": {
+        "modification_type": "quantity_adjustment",
+        "reasoning": "To adjust the sweetness level and texture of the cookies.",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1 cup white sugar",
+            "replace": "1/2 cup white sugar",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "1 cup packed brown sugar",
+            "replace": "1 1/2 cups packed brown sugar",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "remove",
+            "find": "2 teaspoons hot water",
+            "replace": null,
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "add_after",
+            "find": "1 teaspoon baking soda",
+            "replace": null,
+            "add": "1 teaspoon cream of tartar"
+          },
+          {
+            "target": "instructions",
+            "operation": "add_after",
+            "find": "Stir in flour, chocolate chips, and walnuts.",
+            "replace": null,
+            "add": "Refrigerate the batter for at least an hour before scooping and baking."
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "10813_modified",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1/2 cup white sugar",
+            "1 1/2 cups packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "1 teaspoon cream of tartar",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Refrigerate the batter for at least an hour before scooping and baking.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "1 cup white sugar",
+            "to_text": "1/2 cup white sugar",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "1 cup packed brown sugar",
+            "to_text": "1 1/2 cups packed brown sugar",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "2 teaspoons hot water",
+            "to_text": "",
+            "operation": "remove"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "",
+            "to_text": "1 teaspoon cream of tartar",
+            "operation": "add"
+          },
+          {
+            "type": "instruction",
+            "from_text": "",
+            "to_text": "Refrigerate the batter for at least an hour before scooping and baking.",
+            "operation": "add"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    },
+    {
+      "id": "new_fraction",
+      "expected": [
+        "3 eggs and 3/8 cup sugar (equivalent numeric notation allowed); flour and unrelated instruction content unchanged."
+      ],
+      "plan": {
+        "modification_type": "quantity_adjustment",
+        "reasoning": "The user increased the number of eggs and decreased the amount of sugar used.",
+        "edits": [
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "2 eggs",
+            "replace": "3 eggs",
+            "add": null
+          },
+          {
+            "target": "ingredients",
+            "operation": "replace",
+            "find": "3/4 cup sugar",
+            "replace": "3/8 cup sugar",
+            "add": null
+          }
+        ]
+      },
+      "application": {
+        "status": "applied",
+        "recipe": {
+          "recipe_id": "fraction_modified",
+          "title": "Simple batter",
+          "ingredients": [
+            "3 eggs",
+            "3/8 cup sugar",
+            "1 cup flour"
+          ],
+          "instructions": [
+            "Beat eggs and sugar together. Fold in flour."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "changes": [
+          {
+            "type": "ingredient",
+            "from_text": "2 eggs",
+            "to_text": "3 eggs",
+            "operation": "replace"
+          },
+          {
+            "type": "ingredient",
+            "from_text": "3/4 cup sugar",
+            "to_text": "3/8 cup sugar",
+            "operation": "replace"
+          }
+        ],
+        "reason": null,
+        "failed_edit": null
+      }
+    }
+  ]
+}

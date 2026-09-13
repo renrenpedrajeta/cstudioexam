@@ -15,7 +15,7 @@ from openai import OpenAI
 from pydantic import ValidationError
 
 from .models import ModificationObject, Recipe, Review
-from .prompts import build_simple_prompt
+from .prompts import SYSTEM_PROMPT, build_simple_prompt
 
 
 class TweakExtractor:
@@ -54,7 +54,7 @@ class TweakExtractor:
             logger.warning("Review has no modification flag set")
             return None
 
-        # Build the prompt - use simple prompt to avoid format string issues
+        # Keep application rules separate from recipe and review data
         prompt = build_simple_prompt(
             review.text, recipe.title, recipe.ingredients, recipe.instructions
         )
@@ -67,13 +67,20 @@ class TweakExtractor:
             try:
                 response = self.client.chat.completions.create(
                     model=self.model,
-                    messages=[{"role": "user", "content": prompt}],
+                    messages=[
+                        {"role": "system", "content": SYSTEM_PROMPT + "\nOutput schema:\n" + json.dumps(ModificationObject.model_json_schema())},
+                        {"role": "user", "content": prompt},
+                    ],
                     response_format={"type": "json_object"},
                     temperature=0.1,  # Low temperature for consistent extractions
-                    max_tokens=1000,
+                    max_tokens=2400,
                 )
 
-                raw_output = response.choices[0].message.content
+                choice = response.choices[0]
+                if choice.finish_reason != "stop":
+                    logger.warning(f"Attempt {attempt + 1}: Incomplete model output ({choice.finish_reason})")
+                    continue
+                raw_output = choice.message.content
                 logger.debug(f"LLM raw output: {raw_output}")
 
                 # Check if we got a response

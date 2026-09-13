@@ -7,7 +7,7 @@ and all intermediate data formats used throughout the pipeline.
 
 from typing import Any, Dict, List, Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class ModificationEdit(BaseModel):
@@ -27,6 +27,16 @@ class ModificationEdit(BaseModel):
     add: Optional[str] = Field(
         default=None, description="Text to add (required for add_after operations)"
     )
+
+    @model_validator(mode="after")
+    def validate_operation_fields(self):
+        if not self.find.strip():
+            raise ValueError("find must not be blank")
+        if self.operation == "replace" and not (self.replace and self.replace.strip()):
+            raise ValueError("replace operations require nonblank replacement text")
+        if self.operation == "add_after" and not (self.add and self.add.strip()):
+            raise ValueError("add_after operations require nonblank addition text")
+        return self
 
 
 class ModificationObject(BaseModel):
@@ -142,3 +152,13 @@ class Review(BaseModel):
     rating: Optional[int] = None
     username: Optional[str] = None
     has_modification: bool = False
+
+
+class ModificationResult(BaseModel):
+    """A failed plan returns the original recipe and no applied changes."""
+
+    status: Literal["applied", "failed"]
+    recipe: Recipe
+    changes: List[ChangeRecord] = Field(default_factory=list)
+    reason: Optional[str] = None
+    failed_edit: Optional[ModificationEdit] = None

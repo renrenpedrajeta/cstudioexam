@@ -20,6 +20,7 @@ from .enhanced_recipe_generator import EnhancedRecipeGenerator
 from .models import EnhancedRecipe, Recipe, Review
 from .recipe_modifier import RecipeModifier
 from .tweak_extractor import TweakExtractor
+from .consistency import enforce_consistency
 
 
 class LLMAnalysisPipeline:
@@ -159,9 +160,14 @@ class LLMAnalysisPipeline:
 
             # Step 2: Apply modification to recipe
             logger.info("Step 2: Applying modification to recipe...")
-            modified_recipe, change_records = self.recipe_modifier.apply_modification(
+            result = self.recipe_modifier.apply_modification(
                 recipe, modification
             )
+            result, check = enforce_consistency(recipe, result, self.tweak_extractor)
+            if result.status == "failed":
+                logger.warning(f"Modification rejected: {result.reason}; edit={result.failed_edit}; consistency={check}")
+                return None
+            modified_recipe, change_records = result.recipe, result.changes
 
             logger.info(
                 f"Applied modification: {len(change_records)} total changes made"

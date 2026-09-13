@@ -1,0 +1,299 @@
+{
+  "info": {
+    "name": "Recipe Enhancement — Local Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Offline requests use no OpenAI credits. LIVE requests are metered. No API key belongs in Postman; configure it in the server .env. Domain rejections return HTTP 200 with result.status=failed; inspect the JSON."
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. List recipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/recipes"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Cookie recipe and review indexes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/recipes/10813"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. OFFLINE — Exact replacement succeeds",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recipes/10813/preview",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modification_type\": \"quantity_adjustment\",\n  \"reasoning\": \"Demonstrate reducing white sugar\",\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"replace\",\n      \"find\": \"1 cup white sugar\",\n      \"replace\": \"0.5 cup white sugar\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"Applied real change\", () => { const r = pm.response.json().result; pm.expect(r.status).to.eql(\"applied\"); pm.expect(r.changes[0].to_text).to.eql(\"0.5 cup white sugar\"); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. OFFLINE — Capitalization mismatch rejected",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recipes/10813/preview",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modification_type\": \"quantity_adjustment\",\n  \"reasoning\": \"Demonstrate reducing white sugar\",\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"replace\",\n      \"find\": \"1 cup White Sugar\",\n      \"replace\": \"0.5 cup white sugar\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+              "pm.test(\"No false success\", () => { const r = pm.response.json().result; pm.expect(r.status).to.eql(\"failed\"); pm.expect(r.reason).to.eql(\"target_not_found\"); pm.expect(r.changes).to.eql([]); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. LIVE — Enhance selected review (uses credits)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recipes/10813/enhance",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_index\": 0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "7. LIVE — Custom review (uses credits)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recipes/10813/enhance",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_text\": \"I used half a cup of white sugar instead of one cup. Everything else stayed the same.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "8. OFFLINE — Exact walnut removal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recipes/10813/preview",
+        "description": "Mechanical targeting demonstration only; this hand-authored plan does not update the mixing instruction.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modification_type\": \"removal\",\n  \"reasoning\": \"Exact targeting demonstration\",\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"1 cup chopped walnuts\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Expected application status\", () => pm.expect(pm.response.json().result.status).to.eql(\"applied\"));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. OFFLINE — Partial removal target rejected",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recipes/10813/preview",
+        "description": "Mechanical targeting demonstration only; this hand-authored plan does not update the mixing instruction.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modification_type\": \"removal\",\n  \"reasoning\": \"Exact targeting demonstration\",\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"chopped walnuts\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Expected application status\", () => pm.expect(pm.response.json().result.status).to.eql(\"failed\"));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "10. LIVE CHECK — Inconsistent walnut removal blocked",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/10813/validate",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Consistency check on a supplied plan. May use one paid audit call; no extraction and no recipe files written. Inspect consistency_check.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modification_type\": \"removal\",\n  \"reasoning\": \"Omit walnuts\",\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"1 cup chopped walnuts\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "11. LIVE CHECK — Complete walnut removal accepted",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/10813/validate",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Consistency check on a supplied plan. May use one paid audit call; no extraction and no recipe files written. Inspect consistency_check.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modification_type\": \"removal\",\n  \"reasoning\": \"Omit walnuts\",\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"1 cup chopped walnuts\"\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Stir in flour, chocolate chips, and walnuts.\",\n      \"replace\": \"Stir in flour and chocolate chips.\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
