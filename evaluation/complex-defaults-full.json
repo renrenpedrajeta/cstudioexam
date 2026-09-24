@@ -1,0 +1,3442 @@
+{
+  "created_at": "2026-09-24T08:53:47.946742+00:00",
+  "interpretation_model": "gpt-4o-mini",
+  "fidelity_model": "gpt-4.1",
+  "consistency_model": "gpt-4.1",
+  "repair_model": "gpt-4.1",
+  "cases": [
+    {
+      "id": "cookie_cinnamon",
+      "expected": [
+        "White sugar remains 1 cup; brown sugar becomes 0.5 cup; flour becomes 2.5 cups.",
+        "Preserve tiny dash of cinnamon without inventing numeric quantity; include cinnamon in mixing instructions.",
+        "All other content preserved."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "used a whole cup of white sugar",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "absolute",
+                "amount": "1",
+                "unit": "cup",
+                "description": "changed to a whole cup"
+              },
+              {
+                "id": "2",
+                "source_quote": "1/2 c of brown (because it's what I had)",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "brown sugar",
+                "amount_mode": "absolute",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "changed to 1/2 cup"
+              },
+              {
+                "id": "3",
+                "source_quote": "1/2 c less flour after reading some other reviews",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "all-purpose flour",
+                "amount_mode": "subtract",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "reduced by 1/2 cup"
+              },
+              {
+                "id": "4",
+                "source_quote": "added a tiny dash of cinnamon",
+                "action": "add",
+                "timing": "performed",
+                "target": "cinnamon",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "added a tiny dash"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup packed brown sugar",
+                "replace": "1/2 cup packed brown sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "3 cups all-purpose flour",
+                "replace": "2 1/2 cups all-purpose flour",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "add_after",
+                "find": "2 1/2 cups all-purpose flour",
+                "replace": null,
+                "add": "a tiny dash of ground cinnamon"
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Stir in flour, chocolate chips, and walnuts.",
+                "replace": "Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "2"
+            ],
+            [
+              "3"
+            ],
+            [
+              "4"
+            ],
+            [
+              "4"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 334,
+                "prompt_tokens": 1088,
+                "total_tokens": 1422,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"used a whole cup of white sugar\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"white sugar\",\n      \"description\": \"changed to a whole cup\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"1\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"1/2 c of brown (because it's what I had)\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"brown sugar\",\n      \"description\": \"changed to 1/2 cup\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"1/2\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"id\": \"3\",\n      \"source_quote\": \"1/2 c less flour after reading some other reviews\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"all-purpose flour\",\n      \"description\": \"reduced by 1/2 cup\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"id\": \"4\",\n      \"source_quote\": \"added a tiny dash of cinnamon\",\n      \"action\": \"add\",\n      \"timing\": \"performed\",\n      \"target\": \"cinnamon\",\n      \"description\": \"added a tiny dash\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 122,
+                "prompt_tokens": 1438,
+                "total_tokens": 1560,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1152
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"add_after\",\n      \"find\": \"2 1/2 cups all-purpose flour\",\n      \"add\": \"1 teaspoon ground cinnamon\",\n      \"intent_ids\": [\"4\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Stir in flour, chocolate chips, and walnuts.\",\n      \"replace\": \"Stir in flour, chocolate chips, walnuts, and cinnamon.\",\n      \"intent_ids\": [\"4\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 136,
+                "prompt_tokens": 1616,
+                "total_tokens": 1752,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"edits\": [\n    {\n        \"target\": \"ingredients\",\n        \"operation\": \"add_after\",\n        \"find\": \"2 1/2 cups all-purpose flour\",\n        \"replace\": null,\n        \"add\": \"a tiny dash of ground cinnamon\",\n        \"intent_ids\": [\"4\"]\n    },\n    {\n        \"target\": \"instructions\",\n        \"operation\": \"replace\",\n        \"find\": \"Stir in flour, chocolate chips, and walnuts.\",\n        \"replace\": \"Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.\",\n        \"add\": null,\n        \"intent_ids\": [\"4\"]\n    }\n]}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1637,
+                "total_tokens": 1649,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Preserve the source amount 'tiny dash' for 'cinnamon'; do not omit its qualifier or invent a numeric measure."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup packed brown sugar",
+              "replace": "1/2 cup packed brown sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "3 cups all-purpose flour",
+              "replace": "2 1/2 cups all-purpose flour",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "add_after",
+              "find": "2 1/2 cups all-purpose flour",
+              "replace": null,
+              "add": "a tiny dash of ground cinnamon"
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Stir in flour, chocolate chips, and walnuts.",
+              "replace": "Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "10813_enhanced",
+          "original_recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies (Community Enhanced)",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1/2 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "2 1/2 cups all-purpose flour",
+            "a tiny dash of ground cinnamon",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup packed brown sugar",
+                  "to_text": "1/2 cup packed brown sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "3 cups all-purpose flour",
+                  "to_text": "2 1/2 cups all-purpose flour",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "",
+                  "to_text": "a tiny dash of ground cinnamon",
+                  "operation": "add"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Stir in flour, chocolate chips, and walnuts.",
+                  "to_text": "Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 4,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:53:55.900942",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "10813_modified",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1 cup white sugar",
+              "1/2 cup packed brown sugar",
+              "2 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "2 1/2 cups all-purpose flour",
+              "a tiny dash of ground cinnamon",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup packed brown sugar",
+              "to_text": "1/2 cup packed brown sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "3 cups all-purpose flour",
+              "to_text": "2 1/2 cups all-purpose flour",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "",
+              "to_text": "a tiny dash of ground cinnamon",
+              "operation": "add"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Stir in flour, chocolate chips, and walnuts.",
+              "to_text": "Stir in flour, chocolate chips, walnuts, and a tiny dash of cinnamon.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "cookie_nuts",
+      "expected": [
+        "Remove walnuts ingredient and walnuts from mixing instruction; preserve flour and chocolate chips."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I omitted the walnuts entirely. Everything else stayed the same.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I omitted the walnuts entirely.",
+                "action": "remove",
+                "timing": "performed",
+                "target": "walnuts",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Removed walnuts from the recipe."
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "removal",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "remove",
+                "find": "1 cup chopped walnuts",
+                "replace": null,
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Stir in flour, chocolate chips, and walnuts.",
+                "replace": "Stir in flour and chocolate chips.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 91,
+                "prompt_tokens": 1001,
+                "total_tokens": 1092,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I omitted the walnuts entirely.\",\n      \"action\": \"remove\",\n      \"timing\": \"performed\",\n      \"target\": \"walnuts\",\n      \"description\": \"Removed walnuts from the recipe.\",\n      \"amount_mode\": null,\n      \"amount\": null,\n      \"unit\": null\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 59,
+                "prompt_tokens": 1094,
+                "total_tokens": 1153,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"ingredients\",\"operation\":\"remove\",\"find\":\"1 cup chopped walnuts\",\"intent_ids\":[\"1\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"Stir in flour, chocolate chips, and walnuts.\",\"replace\":\"Stir in flour and chocolate chips.\"}]}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 2,
+              "usage": {
+                "completion_tokens": 64,
+                "prompt_tokens": 1192,
+                "total_tokens": 1256,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"ingredients\",\"operation\":\"remove\",\"find\":\"1 cup chopped walnuts\",\"intent_ids\":[\"1\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"Stir in flour, chocolate chips, and walnuts.\",\"replace\":\"Stir in flour and chocolate chips.\",\"intent_ids\":[\"1\"]}]}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1181,
+                "total_tokens": 1193,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": {
+          "modification_type": "removal",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "remove",
+              "find": "1 cup chopped walnuts",
+              "replace": null,
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Stir in flour, chocolate chips, and walnuts.",
+              "replace": "Stir in flour and chocolate chips.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "10813_enhanced",
+          "original_recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies (Community Enhanced)",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour and chocolate chips.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I omitted the walnuts entirely. Everything else stayed the same.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "removal",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup chopped walnuts",
+                  "to_text": "",
+                  "operation": "remove"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Stir in flour, chocolate chips, and walnuts.",
+                  "to_text": "Stir in flour and chocolate chips.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 2,
+            "change_types": [
+              "removal"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:01.251132",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "10813_modified",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1 cup white sugar",
+              "1 cup packed brown sugar",
+              "2 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour and chocolate chips.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup chopped walnuts",
+              "to_text": "",
+              "operation": "remove"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Stir in flour, chocolate chips, and walnuts.",
+              "to_text": "Stir in flour and chocolate chips.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "cookie_two_changes",
+      "expected": [
+        "White sugar 0.5 cup; eggs 3; everything else unchanged."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I used half a cup of white sugar instead of one cup, and three eggs instead of two.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used half a cup of white sugar instead of one cup",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "absolute",
+                "amount": "0.5",
+                "unit": "cup",
+                "description": "used half a cup of white sugar"
+              },
+              {
+                "id": "2",
+                "source_quote": "three eggs instead of two",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "eggs",
+                "amount_mode": "add",
+                "amount": "1",
+                "unit": "count",
+                "description": "added one extra egg"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup white sugar",
+                "replace": "1/2 cup white sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "2 eggs",
+                "replace": "3 eggs",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                "replace": "Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Beat in eggs, one at a time, then stir in vanilla.",
+                "replace": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "2"
+            ],
+            [
+              "1"
+            ],
+            [
+              "2"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 183,
+                "prompt_tokens": 1009,
+                "total_tokens": 1192,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used half a cup of white sugar instead of one cup\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"white sugar\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"0.5\",\n      \"unit\": \"cup\",\n      \"description\": \"used half a cup of white sugar\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"three eggs instead of two\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"eggs\",\n      \"amount_mode\": \"add\",\n      \"amount\": \"1\",\n      \"unit\": \"count\",\n      \"description\": \"added one extra egg\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 147,
+                "prompt_tokens": 1267,
+                "total_tokens": 1414,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1152
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"ingredients\",\"operation\":\"replace\",\"find\":\"1 cup packed brown sugar\",\"replace\":\"1 cup packed brown sugar\",\"intent_ids\":[\"1\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\"replace\":\"Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\"intent_ids\":[\"1\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"Beat in eggs, one at a time, then stir in vanilla.\",\"replace\":\"Beat in 3 eggs, one at a time, then stir in vanilla.\",\"intent_ids\":[\"2\"]}]}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 165,
+                "prompt_tokens": 1564,
+                "total_tokens": 1729,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"edits\": [\n    {\n        \"target\": \"instructions\",\n        \"operation\": \"replace\",\n        \"find\": \"Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\n        \"replace\": \"Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\n        \"add\": null,\n        \"intent_ids\": [\"1\"]\n    },\n    {\n        \"target\": \"instructions\",\n        \"operation\": \"replace\",\n        \"find\": \"Beat in eggs, one at a time, then stir in vanilla.\",\n        \"replace\": \"Beat in 3 eggs, one at a time, then stir in vanilla.\",\n        \"add\": null,\n        \"intent_ids\": [\"2\"]\n    }\n]}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1420,
+                "total_tokens": 1432,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Unsupported ingredient quantity edit; Python owns calculated quantities",
+            "Edit plan could not be completely applied: no_change",
+            "Failed replace in ingredients: find='1 cup packed brown sugar'. Use an exact entire entry from that target array for add_after/remove; do not use a sentence fragment or an entry from the other array."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup white sugar",
+              "replace": "1/2 cup white sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "2 eggs",
+              "replace": "3 eggs",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "replace": "Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Beat in eggs, one at a time, then stir in vanilla.",
+              "replace": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "10813_enhanced",
+          "original_recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies (Community Enhanced)",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1/2 cup white sugar",
+            "1 cup packed brown sugar",
+            "3 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in 3 eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used half a cup of white sugar instead of one cup, and three eggs instead of two.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup white sugar",
+                  "to_text": "1/2 cup white sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "2 eggs",
+                  "to_text": "3 eggs",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                  "to_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Beat in eggs, one at a time, then stir in vanilla.",
+                  "to_text": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 4,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:08.076179",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "10813_modified",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1/2 cup white sugar",
+              "1 cup packed brown sugar",
+              "3 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in 3 eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour, chocolate chips, and walnuts.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup white sugar",
+              "to_text": "1/2 cup white sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "2 eggs",
+              "to_text": "3 eggs",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "to_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Beat in eggs, one at a time, then stir in vanilla.",
+              "to_text": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "soup_future",
+      "expected": [
+        "No edits: future intention to use ginger is not a performed change."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "skipped",
+        "original": {
+          "recipe_id": "77935",
+          "title": "Creamy Sweet Potato With Ginger Soup",
+          "ingredients": [
+            "2 tablespoons olive oil",
+            "1.5 pounds peeled raw sweet potatoes, cut into 1-inch chunks",
+            "1 large onion, cut into large dice",
+            "1 tablespoon butter",
+            "1 pinch sugar",
+            "3 large garlic cloves, thickly sliced",
+            "1.5 teaspoons ground ginger",
+            "0.5 teaspoon ground nutmeg",
+            "0.125 teaspoon cayenne pepper",
+            "3 cups chicken broth, homemade or from a carton or can",
+            "1.5 cups half-and-half (or whole milk)",
+            "Salt and freshly ground pepper, to taste",
+            "Garnish: chopped honey-roasted peanuts"
+          ],
+          "instructions": [
+            "Gather the ingredients.",
+            "Heat oil over medium-high heat in a large, deep saute pan until shimmering. Add sweet potatoes, then onion; saute, stirring very little at first, then more frequently, until vegetables start to turn golden brown, 7 to 8 minutes.",
+            "Reduce heat to low and add butter, sugar and garlic; continue cooking until all vegetables are a rich spotty caramel color, about 10 minutes longer.",
+            "Add ginger, nutmeg and cayenne pepper; continue to saute until fragrant, 30 seconds to 1 minute longer.",
+            "Add broth; bring to a simmer over medium-high heat. Reduce heat to low and simmer, partially covered, until sweet potatoes are tender, about 10 minutes.",
+            "Using an immersion blender or traditional blender, puree until very smooth, 30 seconds to 1 minute. (If using a traditional blender, vent it either by removing the lid&#39;s pop-out center or by lifting one edge of the lid. Drape the blender canister with a kitchen towel. To &#39;clean&#39; the canister, pour in a little half-and-half, blend briefly, then add to the soup.)",
+            "Return to pan (or a soup pot); add enough half-and-half so the mixture is souplike, yet thick enough to float garnish. Taste, and add salt and pepper if needed. Heat through, ladle into bowls, garnish and serve."
+          ],
+          "description": "Made with sweet potatoes and seasoned with ginger, nutmeg, and cayenne pepper, this creamy soup is topped with honey-roasted peanuts.",
+          "servings": "8",
+          "rating": {
+            "value": "4.6",
+            "count": "87"
+          }
+        },
+        "source_review": {
+          "text": "It was amazing!! The portion is only enough for 2-3 people. Very good as is but when I make it again I will use fresh ginger to give it more of a ginger flavour.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "skipped",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "when I make it again I will use fresh ginger to give it more of a ginger flavour.",
+                "action": "substitute",
+                "timing": "future",
+                "target": "ground ginger",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Use fresh ginger instead of ground ginger for more flavor."
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": null,
+          "issues": [],
+          "edit_sources": [],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 110,
+                "prompt_tokens": 1216,
+                "total_tokens": 1326,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1152
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"when I make it again I will use fresh ginger to give it more of a ginger flavour.\",\n      \"action\": \"substitute\",\n      \"timing\": \"future\",\n      \"target\": \"ground ginger\",\n      \"description\": \"Use fresh ginger instead of ground ginger for more flavor.\",\n      \"amount_mode\": null,\n      \"amount\": null,\n      \"unit\": null\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1458,
+                "total_tokens": 1470,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": null,
+        "consistency_check": null,
+        "enhanced_recipe": null,
+        "result": {
+          "status": "skipped",
+          "recipe": {
+            "recipe_id": "77935",
+            "title": "Creamy Sweet Potato With Ginger Soup",
+            "ingredients": [
+              "2 tablespoons olive oil",
+              "1.5 pounds peeled raw sweet potatoes, cut into 1-inch chunks",
+              "1 large onion, cut into large dice",
+              "1 tablespoon butter",
+              "1 pinch sugar",
+              "3 large garlic cloves, thickly sliced",
+              "1.5 teaspoons ground ginger",
+              "0.5 teaspoon ground nutmeg",
+              "0.125 teaspoon cayenne pepper",
+              "3 cups chicken broth, homemade or from a carton or can",
+              "1.5 cups half-and-half (or whole milk)",
+              "Salt and freshly ground pepper, to taste",
+              "Garnish: chopped honey-roasted peanuts"
+            ],
+            "instructions": [
+              "Gather the ingredients.",
+              "Heat oil over medium-high heat in a large, deep saute pan until shimmering. Add sweet potatoes, then onion; saute, stirring very little at first, then more frequently, until vegetables start to turn golden brown, 7 to 8 minutes.",
+              "Reduce heat to low and add butter, sugar and garlic; continue cooking until all vegetables are a rich spotty caramel color, about 10 minutes longer.",
+              "Add ginger, nutmeg and cayenne pepper; continue to saute until fragrant, 30 seconds to 1 minute longer.",
+              "Add broth; bring to a simmer over medium-high heat. Reduce heat to low and simmer, partially covered, until sweet potatoes are tender, about 10 minutes.",
+              "Using an immersion blender or traditional blender, puree until very smooth, 30 seconds to 1 minute. (If using a traditional blender, vent it either by removing the lid&#39;s pop-out center or by lifting one edge of the lid. Drape the blender canister with a kitchen towel. To &#39;clean&#39; the canister, pour in a little half-and-half, blend briefly, then add to the soup.)",
+              "Return to pan (or a soup pot); add enough half-and-half so the mixture is souplike, yet thick enough to float garnish. Taste, and add salt and pepper if needed. Heat through, ladle into bowls, garnish and serve."
+            ],
+            "description": "Made with sweet potatoes and seasoned with ginger, nutmeg, and cayenne pepper, this creamy soup is topped with honey-roasted peanuts.",
+            "servings": "8",
+            "rating": {
+              "value": "4.6",
+              "count": "87"
+            }
+          },
+          "changes": [],
+          "reason": "No performed changes to apply",
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "cake_ambiguous",
+      "expected": [
+        "No edits: brown, white and frosting sugar make target ambiguous; explain ambiguity."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "needs_review",
+        "original": {
+          "recipe_id": "19117",
+          "title": "Spicy Apple Cake",
+          "ingredients": [
+            "1.5 cups all-purpose flour",
+            "1 teaspoon ground cinnamon",
+            "1 teaspoon baking powder",
+            "0.5 teaspoon baking soda",
+            "0.5 teaspoon salt",
+            "0.5 teaspoon ground nutmeg",
+            "1 cup brown sugar",
+            "0.5 cup shortening",
+            "0.25 cup white sugar",
+            "2 eggs",
+            "1 teaspoon vanilla extract",
+            "0.5 cup milk",
+            "2 cups apple - peeled, cored, and chopped",
+            "2 cups sifted confectioners' sugar",
+            "0.25 cup shortening",
+            "0.25 teaspoon ground cinnamon",
+            "1 pinch ground nutmeg",
+            "0.25 cup evaporated milk"
+          ],
+          "instructions": [
+            "Preheat the oven to 350 degrees F (175 degrees C). Grease and flour a 9-inch square pan.",
+            "Sift together flour, 1 teaspoon cinnamon, baking powder, baking soda, salt, and nutmeg. Set aside.",
+            "Cream brown sugar, 1/2 cup shortening, and white sugar together in a large bowl until light and fluffy. Beat in eggs one at a time, then stir in vanilla. Beat in flour mixture alternately with milk, mixing until just combined. Stir in chopped apples.",
+            "Spread batter evenly in the prepared pan. Bake in the preheated oven until a toothpick inserted into the center of cake comes out clean, 35 to 40 minutes. Let cool.",
+            "Combine confectioners&#39; sugar, 1/4 cup shortening, 1/4 teaspoon cinnamon, and nutmeg in a medium bowl. Beat until frosting is light and creamy. Beat in evaporated milk 1 tablespoon at a time until desired spreading consistency is reached. Spread over top of cooled cake."
+          ],
+          "description": "This delicious spicy apple cake recipe is made with fresh apples, spices, and sugar. It&#39;s a wonderfully perfect treat for the apple harvest season.",
+          "servings": "9",
+          "rating": {
+            "value": "4.7",
+            "count": "79"
+          }
+        },
+        "source_review": {
+          "text": "I halved the sugar.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "needs_review",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I halved the sugar.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "brown sugar",
+                "amount_mode": "multiply",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "Halved the amount of brown sugar."
+              },
+              {
+                "id": "2",
+                "source_quote": "I halved the sugar.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "multiply",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "Halved the amount of white sugar."
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": null,
+          "issues": [
+            "Review does not disambiguate which sugar to change",
+            "Review does not disambiguate which sugar to change"
+          ],
+          "edit_sources": [],
+          "fidelity_check": null,
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 181,
+                "prompt_tokens": 1112,
+                "total_tokens": 1293,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I halved the sugar.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"brown sugar\",\n      \"description\": \"Halved the amount of brown sugar.\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"0.5\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"I halved the sugar.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"white sugar\",\n      \"description\": \"Halved the amount of white sugar.\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"0.125\",\n      \"unit\": \"cup\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": null,
+        "consistency_check": null,
+        "enhanced_recipe": null,
+        "result": {
+          "status": "needs_review",
+          "recipe": {
+            "recipe_id": "19117",
+            "title": "Spicy Apple Cake",
+            "ingredients": [
+              "1.5 cups all-purpose flour",
+              "1 teaspoon ground cinnamon",
+              "1 teaspoon baking powder",
+              "0.5 teaspoon baking soda",
+              "0.5 teaspoon salt",
+              "0.5 teaspoon ground nutmeg",
+              "1 cup brown sugar",
+              "0.5 cup shortening",
+              "0.25 cup white sugar",
+              "2 eggs",
+              "1 teaspoon vanilla extract",
+              "0.5 cup milk",
+              "2 cups apple - peeled, cored, and chopped",
+              "2 cups sifted confectioners' sugar",
+              "0.25 cup shortening",
+              "0.25 teaspoon ground cinnamon",
+              "1 pinch ground nutmeg",
+              "0.25 cup evaporated milk"
+            ],
+            "instructions": [
+              "Preheat the oven to 350 degrees F (175 degrees C). Grease and flour a 9-inch square pan.",
+              "Sift together flour, 1 teaspoon cinnamon, baking powder, baking soda, salt, and nutmeg. Set aside.",
+              "Cream brown sugar, 1/2 cup shortening, and white sugar together in a large bowl until light and fluffy. Beat in eggs one at a time, then stir in vanilla. Beat in flour mixture alternately with milk, mixing until just combined. Stir in chopped apples.",
+              "Spread batter evenly in the prepared pan. Bake in the preheated oven until a toothpick inserted into the center of cake comes out clean, 35 to 40 minutes. Let cool.",
+              "Combine confectioners&#39; sugar, 1/4 cup shortening, 1/4 teaspoon cinnamon, and nutmeg in a medium bowl. Beat until frosting is light and creamy. Beat in evaporated milk 1 tablespoon at a time until desired spreading consistency is reached. Spread over top of cooled cake."
+            ],
+            "description": "This delicious spicy apple cake recipe is made with fresh apples, spices, and sugar. It&#39;s a wonderfully perfect treat for the apple harvest season.",
+            "servings": "9",
+            "rating": {
+              "value": "4.7",
+              "count": "79"
+            }
+          },
+          "changes": [],
+          "reason": "Review does not disambiguate which sugar to change; Review does not disambiguate which sugar to change",
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "cookie_numbered",
+      "expected": [
+        "Capture white sugar 0.5 cup, brown sugar 1.5 cups, omit water, add 1 tsp cream of tartar, chill at least one hour.",
+        "Update water-dependent and cream-of-tartar instructions; keep unrelated recipe content."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "These are awesome cookies. I followed the advice of others by making the following tweaks: (1) I used a half cup of sugar and one-and-a-half cups of brown sugar; (2) I omitted the water; (3) I added a teaspoon of cream of tartar to the batter; (4) I refrigerated the batter for at least an hour before scooping and baking. The cookies retained their shape and didn't spread when baked. I think the cream of tartar made a difference, and the cookies did not come out too cakey either! This recipe is going in my \"favorites\" cookbook.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used a half cup of sugar and one-and-a-half cups of brown sugar",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "absolute",
+                "amount": "0.5",
+                "unit": "cup",
+                "description": "used half cup"
+              },
+              {
+                "id": "2",
+                "source_quote": "I used a half cup of sugar and one-and-a-half cups of brown sugar",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "brown sugar",
+                "amount_mode": "absolute",
+                "amount": "1.5",
+                "unit": "cups",
+                "description": "used one-and-a-half cups"
+              },
+              {
+                "id": "3",
+                "source_quote": "I omitted the water",
+                "action": "remove",
+                "timing": "performed",
+                "target": "hot water",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "omitted"
+              },
+              {
+                "id": "4",
+                "source_quote": "I added a teaspoon of cream of tartar to the batter",
+                "action": "add",
+                "timing": "performed",
+                "target": "cream of tartar",
+                "amount_mode": "absolute",
+                "amount": "1",
+                "unit": "teaspoon",
+                "description": "added a teaspoon"
+              },
+              {
+                "id": "5",
+                "source_quote": "I refrigerated the batter for at least an hour before scooping and baking",
+                "action": "technique",
+                "timing": "performed",
+                "target": "batter refrigeration",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "refrigerated for at least an hour before scooping and baking"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup white sugar",
+                "replace": "1/2 cup white sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup packed brown sugar",
+                "replace": "1 1/2 cup packed brown sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "remove",
+                "find": "2 teaspoons hot water",
+                "replace": null,
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "add_after",
+                "find": "1/2 cup white sugar",
+                "replace": null,
+                "add": "1 teaspoon cream of tartar"
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Dissolve baking soda in hot water. Add to batter along with salt.",
+                "replace": "Add baking soda and salt to the batter along with the cream of tartar.",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "add_after",
+                "find": "Stir in flour, chocolate chips, and walnuts.",
+                "replace": null,
+                "add": "Refrigerate the batter for at least an hour before scooping and baking."
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "2"
+            ],
+            [
+              "3"
+            ],
+            [
+              "4"
+            ],
+            [
+              "3",
+              "4"
+            ],
+            [
+              "5"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 415,
+                "prompt_tokens": 1113,
+                "total_tokens": 1528,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used a half cup of sugar and one-and-a-half cups of brown sugar\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"white sugar\",\n      \"description\": \"used half cup\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"0.5\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"I used a half cup of sugar and one-and-a-half cups of brown sugar\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"brown sugar\",\n      \"description\": \"used one-and-a-half cups\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"1.5\",\n      \"unit\": \"cups\"\n    },\n    {\n      \"id\": \"3\",\n      \"source_quote\": \"I omitted the water\",\n      \"action\": \"remove\",\n      \"timing\": \"performed\",\n      \"target\": \"hot water\",\n      \"description\": \"omitted\"\n    },\n    {\n      \"id\": \"4\",\n      \"source_quote\": \"I added a teaspoon of cream of tartar to the batter\",\n      \"action\": \"add\",\n      \"timing\": \"performed\",\n      \"target\": \"cream of tartar\",\n      \"description\": \"added a teaspoon\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"1\",\n      \"unit\": \"teaspoon\"\n    },\n    {\n      \"id\": \"5\",\n      \"source_quote\": \"I refrigerated the batter for at least an hour before scooping and baking\",\n      \"action\": \"technique\",\n      \"timing\": \"performed\",\n      \"target\": \"batter refrigeration\",\n      \"description\": \"refrigerated for at least an hour before scooping and baking\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 161,
+                "prompt_tokens": 1616,
+                "total_tokens": 1777,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"2 teaspoons hot water\",\n      \"intent_ids\": [\"3\"]\n    },\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"add_after\",\n      \"find\": \"1/2 cup white sugar\",\n      \"add\": \"1 teaspoon cream of tartar\",\n      \"intent_ids\": [\"4\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"add_after\",\n      \"find\": \"Stir in flour, chocolate chips, and walnuts.\",\n      \"add\": \"Refrigerate the batter for at least an hour before scooping and baking.\",\n      \"intent_ids\": [\"5\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 262,
+                "prompt_tokens": 1842,
+                "total_tokens": 2104,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"2 teaspoons hot water\",\n      \"replace\": null,\n      \"add\": null,\n      \"intent_ids\": [\"3\"]\n    },\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"add_after\",\n      \"find\": \"1/2 cup white sugar\",\n      \"replace\": null,\n      \"add\": \"1 teaspoon cream of tartar\",\n      \"intent_ids\": [\"4\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Dissolve baking soda in hot water. Add to batter along with salt.\",\n      \"replace\": \"Add baking soda and salt to the batter along with the cream of tartar.\",\n      \"add\": null,\n      \"intent_ids\": [\"3\", \"4\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"add_after\",\n      \"find\": \"Stir in flour, chocolate chips, and walnuts.\",\n      \"replace\": null,\n      \"add\": \"Refrigerate the batter for at least an hour before scooping and baking.\",\n      \"intent_ids\": [\"5\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1856,
+                "total_tokens": 1868,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Removed ingredient 'water' is still used in the final instructions.",
+            "Added ingredient 'cream of tartar' has no explicit use in the final instructions."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup white sugar",
+              "replace": "1/2 cup white sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup packed brown sugar",
+              "replace": "1 1/2 cup packed brown sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "remove",
+              "find": "2 teaspoons hot water",
+              "replace": null,
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "add_after",
+              "find": "1/2 cup white sugar",
+              "replace": null,
+              "add": "1 teaspoon cream of tartar"
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "replace": "Add baking soda and salt to the batter along with the cream of tartar.",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "add_after",
+              "find": "Stir in flour, chocolate chips, and walnuts.",
+              "replace": null,
+              "add": "Refrigerate the batter for at least an hour before scooping and baking."
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "10813_enhanced",
+          "original_recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies (Community Enhanced)",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1/2 cup white sugar",
+            "1 teaspoon cream of tartar",
+            "1 1/2 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Add baking soda and salt to the batter along with the cream of tartar.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Refrigerate the batter for at least an hour before scooping and baking.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "These are awesome cookies. I followed the advice of others by making the following tweaks: (1) I used a half cup of sugar and one-and-a-half cups of brown sugar; (2) I omitted the water; (3) I added a teaspoon of cream of tartar to the batter; (4) I refrigerated the batter for at least an hour before scooping and baking. The cookies retained their shape and didn't spread when baked. I think the cream of tartar made a difference, and the cookies did not come out too cakey either! This recipe is going in my \"favorites\" cookbook.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup white sugar",
+                  "to_text": "1/2 cup white sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup packed brown sugar",
+                  "to_text": "1 1/2 cup packed brown sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "2 teaspoons hot water",
+                  "to_text": "",
+                  "operation": "remove"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "",
+                  "to_text": "1 teaspoon cream of tartar",
+                  "operation": "add"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Dissolve baking soda in hot water. Add to batter along with salt.",
+                  "to_text": "Add baking soda and salt to the batter along with the cream of tartar.",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "",
+                  "to_text": "Refrigerate the batter for at least an hour before scooping and baking.",
+                  "operation": "add"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 6,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:22.069007",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "10813_modified",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1/2 cup white sugar",
+              "1 teaspoon cream of tartar",
+              "1 1/2 cup packed brown sugar",
+              "2 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in eggs, one at a time, then stir in vanilla.",
+              "Add baking soda and salt to the batter along with the cream of tartar.",
+              "Stir in flour, chocolate chips, and walnuts.",
+              "Refrigerate the batter for at least an hour before scooping and baking.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup white sugar",
+              "to_text": "1/2 cup white sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "1 cup packed brown sugar",
+              "to_text": "1 1/2 cup packed brown sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "2 teaspoons hot water",
+              "to_text": "",
+              "operation": "remove"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "",
+              "to_text": "1 teaspoon cream of tartar",
+              "operation": "add"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "to_text": "Add baking soda and salt to the batter along with the cream of tartar.",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "",
+              "to_text": "Refrigerate the batter for at least an hour before scooping and baking.",
+              "operation": "add"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "new_fraction",
+      "expected": [
+        "3 eggs and 3/8 cup sugar (equivalent numeric notation allowed); flour and unrelated instruction content unchanged."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "fraction",
+          "title": "Simple batter",
+          "ingredients": [
+            "2 eggs",
+            "3/4 cup sugar",
+            "1 cup flour"
+          ],
+          "instructions": [
+            "Beat eggs and sugar together. Fold in flour."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I added one extra egg and used half as much sugar.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "added one extra egg",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "eggs",
+                "amount_mode": "add",
+                "amount": "1",
+                "unit": "count",
+                "description": "added an extra egg"
+              },
+              {
+                "id": "2",
+                "source_quote": "used half as much sugar",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "sugar",
+                "amount_mode": "multiply",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "used half as much sugar"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "2 eggs",
+                "replace": "3 eggs",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "3/4 cup sugar",
+                "replace": "3/8 cup sugar",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "2"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 173,
+                "prompt_tokens": 749,
+                "total_tokens": 922,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"added one extra egg\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"eggs\",\n      \"amount_mode\": \"add\",\n      \"amount\": \"1\",\n      \"unit\": \"count\",\n      \"description\": \"added an extra egg\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"used half as much sugar\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"sugar\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"3/8\",\n      \"unit\": \"cup\",\n      \"description\": \"used half as much sugar\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 748,
+                "total_tokens": 760,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "2 eggs",
+              "replace": "3 eggs",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "3/4 cup sugar",
+              "replace": "3/8 cup sugar",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "fraction_enhanced",
+          "original_recipe_id": "fraction",
+          "title": "Simple batter (Community Enhanced)",
+          "ingredients": [
+            "3 eggs",
+            "3/8 cup sugar",
+            "1 cup flour"
+          ],
+          "instructions": [
+            "Beat eggs and sugar together. Fold in flour."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I added one extra egg and used half as much sugar.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "2 eggs",
+                  "to_text": "3 eggs",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "3/4 cup sugar",
+                  "to_text": "3/8 cup sugar",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 2,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:25.021941",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "fraction_modified",
+            "title": "Simple batter",
+            "ingredients": [
+              "3 eggs",
+              "3/8 cup sugar",
+              "1 cup flour"
+            ],
+            "instructions": [
+              "Beat eggs and sugar together. Fold in flour."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "2 eggs",
+              "to_text": "3 eggs",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "3/4 cup sugar",
+              "to_text": "3/8 cup sugar",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "heldout_soup_salt",
+      "expected": [
+        "Salt 1/2 teaspoon; broth and instruction preserved; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "salt",
+          "title": "Vegetable soup",
+          "ingredients": [
+            "1 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in salt."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used 1/2 teaspoon of salt instead of 1 teaspoon.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "salt",
+                "amount_mode": "subtract",
+                "amount": "1/2",
+                "unit": "teaspoon",
+                "description": "reduced amount of salt"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 teaspoon salt",
+                "replace": "1/2 teaspoon salt",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 107,
+                "prompt_tokens": 750,
+                "total_tokens": 857,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"amount_mode\": \"substract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\",\n      \"description\": \"reduced amount of salt\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 2,
+              "usage": {
+                "completion_tokens": 106,
+                "prompt_tokens": 909,
+                "total_tokens": 1015,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\",\n      \"description\": \"reduced amount of salt\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 648,
+                "total_tokens": 660,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 teaspoon salt",
+              "replace": "1/2 teaspoon salt",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "salt_enhanced",
+          "original_recipe_id": "salt",
+          "title": "Vegetable soup (Community Enhanced)",
+          "ingredients": [
+            "1/2 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in salt."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 teaspoon salt",
+                  "to_text": "1/2 teaspoon salt",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 1,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:29.393920",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "salt_modified",
+            "title": "Vegetable soup",
+            "ingredients": [
+              "1/2 teaspoon salt",
+              "2 cups broth"
+            ],
+            "instructions": [
+              "Heat broth and stir in salt."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 teaspoon salt",
+              "to_text": "1/2 teaspoon salt",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "heldout_negation",
+      "expected": [
+        "Skipped; no edits."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "skipped",
+        "original": {
+          "recipe_id": "nuts",
+          "title": "Nut batter",
+          "ingredients": [
+            "1 cup walnuts",
+            "1 cup flour"
+          ],
+          "instructions": [
+            "Mix walnuts and flour."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I did not remove the walnuts. I made it exactly as written.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "skipped",
+          "interpretation": {
+            "changes": [],
+            "unresolved": []
+          },
+          "modification": null,
+          "issues": [],
+          "edit_sources": [],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 8,
+                "prompt_tokens": 740,
+                "total_tokens": 748,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"changes\":[],\"unresolved\":[]}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 512,
+                "total_tokens": 524,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": null,
+        "consistency_check": null,
+        "enhanced_recipe": null,
+        "result": {
+          "status": "skipped",
+          "recipe": {
+            "recipe_id": "nuts",
+            "title": "Nut batter",
+            "ingredients": [
+              "1 cup walnuts",
+              "1 cup flour"
+            ],
+            "instructions": [
+              "Mix walnuts and flour."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [],
+          "reason": "No performed changes to apply",
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "heldout_mixed_timing",
+      "expected": [
+        "Eggs 3; sugar remains 1 cup; future suggestion unapplied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "batter",
+          "title": "Plain batter",
+          "ingredients": [
+            "2 eggs",
+            "1 cup sugar"
+          ],
+          "instructions": [
+            "Beat eggs and sugar."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used 3 eggs instead of 2. Next time I might halve the sugar.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used 3 eggs instead of 2.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "eggs",
+                "amount_mode": "absolute",
+                "amount": "3",
+                "unit": "count",
+                "description": "used 3 eggs"
+              },
+              {
+                "id": "2",
+                "source_quote": "Next time I might halve the sugar.",
+                "action": "quantity",
+                "timing": "future",
+                "target": "sugar",
+                "amount_mode": "multiply",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "might halve the sugar"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "2 eggs",
+                "replace": "3 eggs",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 179,
+                "prompt_tokens": 744,
+                "total_tokens": 923,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 3 eggs instead of 2.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"eggs\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"3\",\n      \"unit\": \"count\",\n      \"description\": \"used 3 eggs\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"Next time I might halve the sugar.\",\n      \"action\": \"quantity\",\n      \"timing\": \"future\",\n      \"target\": \"sugar\",\n      \"amount_mode\": \"multiply\",\n      \"amount\": \"1/2\",\n      \"unit\": \"cup\",\n      \"description\": \"might halve the sugar\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 633,
+                "total_tokens": 645,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "2 eggs",
+              "replace": "3 eggs",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "batter_enhanced",
+          "original_recipe_id": "batter",
+          "title": "Plain batter (Community Enhanced)",
+          "ingredients": [
+            "3 eggs",
+            "1 cup sugar"
+          ],
+          "instructions": [
+            "Beat eggs and sugar."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used 3 eggs instead of 2. Next time I might halve the sugar.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "2 eggs",
+                  "to_text": "3 eggs",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 1,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:33.726889",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "batter_modified",
+            "title": "Plain batter",
+            "ingredients": [
+              "3 eggs",
+              "1 cup sugar"
+            ],
+            "instructions": [
+              "Beat eggs and sugar."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "2 eggs",
+              "to_text": "3 eggs",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "repeat_two_changes",
+      "expected": [
+        "White sugar 0.5 cup; eggs 3; everything else unchanged."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I used half a cup of white sugar instead of one cup, and three eggs instead of two.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used half a cup of white sugar instead of one cup",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "absolute",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "used half a cup of white sugar instead of one cup"
+              },
+              {
+                "id": "2",
+                "source_quote": "three eggs instead of two",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "eggs",
+                "amount_mode": "add",
+                "amount": "1",
+                "unit": "count",
+                "description": "added one extra egg"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup white sugar",
+                "replace": "1/2 cup white sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "2 eggs",
+                "replace": "3 eggs",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                "replace": "Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Beat in eggs, one at a time, then stir in vanilla.",
+                "replace": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "2"
+            ],
+            [
+              "1"
+            ],
+            [
+              "2"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 187,
+                "prompt_tokens": 1009,
+                "total_tokens": 1196,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used half a cup of white sugar instead of one cup\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"white sugar\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"1/2\",\n      \"unit\": \"cup\",\n      \"description\": \"used half a cup of white sugar instead of one cup\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"three eggs instead of two\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"eggs\",\n      \"amount_mode\": \"add\",\n      \"amount\": \"1\",\n      \"unit\": \"count\",\n      \"description\": \"added one extra egg\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 141,
+                "prompt_tokens": 1271,
+                "total_tokens": 1412,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1152
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"ingredients\",\"operation\":\"remove\",\"find\":\"1 cup packed brown sugar\",\"intent_ids\":[\"1\",\"2\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\"replace\":\"Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\"intent_ids\":[\"1\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"Beat in eggs, one at a time, then stir in vanilla.\",\"replace\":\"Beat in 3 eggs, one at a time, then stir in vanilla.\",\"intent_ids\":[\"2\"]}]}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 169,
+                "prompt_tokens": 1527,
+                "total_tokens": 1696,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\n      \"replace\": \"Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.\",\n      \"add\": null,\n      \"intent_ids\": [\"1\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Beat in eggs, one at a time, then stir in vanilla.\",\n      \"replace\": \"Beat in 3 eggs, one at a time, then stir in vanilla.\",\n      \"add\": null,\n      \"intent_ids\": [\"2\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1424,
+                "total_tokens": 1436,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Unsupported ingredient quantity edit; Python owns calculated quantities",
+            "Removed ingredient 'brown sugar' is still used in the final instructions."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup white sugar",
+              "replace": "1/2 cup white sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "2 eggs",
+              "replace": "3 eggs",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "replace": "Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Beat in eggs, one at a time, then stir in vanilla.",
+              "replace": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "10813_enhanced",
+          "original_recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies (Community Enhanced)",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1/2 cup white sugar",
+            "1 cup packed brown sugar",
+            "3 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in 3 eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used half a cup of white sugar instead of one cup, and three eggs instead of two.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup white sugar",
+                  "to_text": "1/2 cup white sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "2 eggs",
+                  "to_text": "3 eggs",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                  "to_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Beat in eggs, one at a time, then stir in vanilla.",
+                  "to_text": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 4,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:40.106100",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "10813_modified",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1/2 cup white sugar",
+              "1 cup packed brown sugar",
+              "3 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in 3 eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour, chocolate chips, and walnuts.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup white sugar",
+              "to_text": "1/2 cup white sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "2 eggs",
+              "to_text": "3 eggs",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "to_text": "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, 1/2 cup white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Beat in eggs, one at a time, then stir in vanilla.",
+              "to_text": "Beat in 3 eggs, one at a time, then stir in vanilla.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "repeat_soup_salt",
+      "expected": [
+        "Salt 1/2 teaspoon; broth and instruction preserved; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "salt",
+          "title": "Vegetable soup",
+          "ingredients": [
+            "1 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in salt."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used 1/2 teaspoon of salt instead of 1 teaspoon.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "salt",
+                "amount_mode": "subtract",
+                "amount": "1/2",
+                "unit": "teaspoon",
+                "description": "reduced amount of salt"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 teaspoon salt",
+                "replace": "1/2 teaspoon salt",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 107,
+                "prompt_tokens": 750,
+                "total_tokens": 857,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"amount_mode\": \"substract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\",\n      \"description\": \"reduced amount of salt\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 2,
+              "usage": {
+                "completion_tokens": 106,
+                "prompt_tokens": 909,
+                "total_tokens": 1015,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\",\n      \"description\": \"reduced amount of salt\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 648,
+                "total_tokens": 660,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 teaspoon salt",
+              "replace": "1/2 teaspoon salt",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "salt_enhanced",
+          "original_recipe_id": "salt",
+          "title": "Vegetable soup (Community Enhanced)",
+          "ingredients": [
+            "1/2 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in salt."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 teaspoon salt",
+                  "to_text": "1/2 teaspoon salt",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 1,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:44.406522",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "salt_modified",
+            "title": "Vegetable soup",
+            "ingredients": [
+              "1/2 teaspoon salt",
+              "2 cups broth"
+            ],
+            "instructions": [
+              "Heat broth and stir in salt."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 teaspoon salt",
+              "to_text": "1/2 teaspoon salt",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    }
+  ]
+}

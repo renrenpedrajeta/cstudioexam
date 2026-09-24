@@ -294,6 +294,121 @@
           }
         }
       }
+    },
+    {
+      "name": "12. LIVE — Multiple changes with source grounding",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/10813/enhance",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Metered grounded workflow. Inspect status, planning.interpretation, planning.issues, result.changes and consistency_check. Model outputs can vary.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_text\": \"I used half a cup of white sugar instead of one cup, and three eggs instead of two.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "13. LIVE — Future intention is skipped",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/77935/enhance",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Metered grounded workflow. Inspect status, planning.interpretation, planning.issues, result.changes and consistency_check. Model outputs can vary.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_text\": \"Next time I will use fresh ginger instead of ground ginger.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "14. LIVE — Ambiguous sugar needs review",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/19117/enhance",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Metered grounded workflow. Inspect status, planning.interpretation, planning.issues, result.changes and consistency_check. Model outputs can vary.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_text\": \"I halved the sugar.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "15. LIVE - cookie_cinnamon",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/10813/enhance",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Metered multi-change demo. Inspect result.recipe, result.changes, planning.repair_feedback and consistency_check. Original preserved on rejection.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_text\": \"I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "16. LIVE - cookie_numbered",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/recipes/10813/enhance",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "description": "Metered multi-change demo. Inspect result.recipe, result.changes, planning.repair_feedback and consistency_check. Original preserved on rejection.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"review_text\": \"These are awesome cookies. I followed the advice of others by making the following tweaks: (1) I used a half cup of sugar and one-and-a-half cups of brown sugar; (2) I omitted the water; (3) I added a teaspoon of cream of tartar to the batter; (4) I refrigerated the batter for at least an hour before scooping and baking. The cookies retained their shape and didn't spread when baked. I think the cream of tartar made a difference, and the cookies did not come out too cakey either! This recipe is going in my \\\"favorites\\\" cookbook.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
     }
   ]
 }

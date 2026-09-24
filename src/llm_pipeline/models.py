@@ -157,7 +157,7 @@ class Review(BaseModel):
 class ModificationResult(BaseModel):
     """A failed plan returns the original recipe and no applied changes."""
 
-    status: Literal["applied", "failed"]
+    status: Literal["applied", "skipped", "needs_review", "failed"]
     recipe: Recipe
     changes: List[ChangeRecord] = Field(default_factory=list)
     reason: Optional[str] = None

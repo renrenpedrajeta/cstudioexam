@@ -41,6 +41,11 @@ tmp/
 htmlcov/
 .pytest_cache/
 
+# Spreadsheet preview and inspection artifacts
+outputs/**/*.png
+outputs/**/*.inspect.ndjson
+outputs/**/node_modules/
+
 
 # Custom
 design/

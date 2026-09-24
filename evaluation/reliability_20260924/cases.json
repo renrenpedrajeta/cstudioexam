@@ -1,0 +1,774 @@
+{
+  "created_at": "2026-09-24T09:37:48.938570+00:00",
+  "cases": [
+    {
+      "id": "Q01",
+      "category": "Quantity",
+      "recipe_id": "10813",
+      "review_text": "I used three quarters of a cup of white sugar rather than the full cup.",
+      "expected": "White sugar 3/4 cup; brown sugar unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q02",
+      "category": "Quantity",
+      "recipe_id": "10813",
+      "review_text": "I reduced the flour by one third, using 2 cups instead of 3.",
+      "expected": "Flour 2 cups. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q03",
+      "category": "Quantity",
+      "recipe_id": "10813",
+      "review_text": "I doubled the vanilla extract to 4 teaspoons.",
+      "expected": "Vanilla extract 4 teaspoons. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q04",
+      "category": "Quantity",
+      "recipe_id": "77935",
+      "review_text": "I used 4 cups of chicken broth instead of 3 cups.",
+      "expected": "Chicken broth 4 cups. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q05",
+      "category": "Quantity",
+      "recipe_id": "45613",
+      "review_text": "I cut the dried cherries to half a cup.",
+      "expected": "Dried cherries 1/2 cup. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q06",
+      "category": "Quantity",
+      "recipe_id": "144299",
+      "review_text": "I used half the listed sake: one eighth of a cup.",
+      "expected": "Sake 1/8 cup. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q07",
+      "category": "Quantity",
+      "recipe_id": "19117",
+      "review_text": "For the frosting, I used 1 1/2 cups of confectioners' sugar instead of 2 cups. I left both sugars in the cake batter unchanged.",
+      "expected": "Confectioners' sugar 1 1/2 cups; brown and white sugar unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "Q08",
+      "category": "Quantity",
+      "recipe_id": "10813",
+      "review_text": "I increased the eggs from two to three. That was my only change.",
+      "expected": "Eggs 3. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "S01",
+      "category": "Substitution",
+      "recipe_id": "10813",
+      "review_text": "I replaced the 1 cup of chopped walnuts with 1 cup of chopped pecans.",
+      "expected": "Pecans 1 cup replace walnuts in ingredients and mixing instructions. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "S02",
+      "category": "Substitution",
+      "recipe_id": "10813",
+      "review_text": "I used 2 cups of milk chocolate chips instead of the 2 cups of semisweet chocolate chips.",
+      "expected": "Milk chocolate chips 2 cups replace semisweet chips; generic chocolate-chip instruction is acceptable. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "S03",
+      "category": "Substitution",
+      "recipe_id": "77935",
+      "review_text": "I replaced all 3 cups of chicken broth with 3 cups of vegetable broth.",
+      "expected": "Vegetable broth 3 cups replaces chicken broth; generic broth instruction is acceptable. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "S04",
+      "category": "Substitution",
+      "recipe_id": "45613",
+      "review_text": "I swapped the dried cherries for 3/4 cup dried cranberries.",
+      "expected": "Dried cranberries 3/4 cup replace cherries in ingredients and blender step. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "S05",
+      "category": "Substitution",
+      "recipe_id": "45613",
+      "review_text": "I replaced the mango nectar with 1 1/2 cups of pineapple juice.",
+      "expected": "Pineapple juice 1 1/2 cups replaces mango nectar in ingredients and blender step. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "S06",
+      "category": "Substitution",
+      "recipe_id": "144299",
+      "review_text": "I used 1/4 cup tamari in place of the soy sauce.",
+      "expected": "Tamari 1/4 cup replaces soy sauce in ingredients and simmering step. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "M01",
+      "category": "Multiple changes",
+      "recipe_id": "10813",
+      "review_text": "I used 3/4 cup white sugar and 3 eggs. I also swapped the walnuts for 1 cup chopped pecans.",
+      "expected": "White sugar 3/4 cup, eggs 3, pecans 1 cup instead of walnuts with matching mixing step. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": true
+    },
+    {
+      "id": "M02",
+      "category": "Multiple changes",
+      "recipe_id": "10813",
+      "review_text": "I used 2 1/2 cups flour, left out the walnuts, and mixed 1 teaspoon cinnamon into the batter. I refrigerated the dough for 45 minutes before dropping spoonfuls onto the baking sheets.",
+      "expected": "Flour 2 1/2 cups; walnuts absent from ingredients and steps; cinnamon 1 teaspoon with use step; refrigerate 45 minutes before spooning dough. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": true
+    },
+    {
+      "id": "M03",
+      "category": "Multiple changes",
+      "recipe_id": "45613",
+      "review_text": "I used only 1 cup of mango nectar, replaced the cherries with 1/2 cup dried cranberries, and marinated the meat in the refrigerator for at least 4 hours instead of 2.",
+      "expected": "Mango nectar 1 cup; dried cranberries 1/2 cup replace cherries in blender; refrigerated marination at least 4 hours. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": true
+    },
+    {
+      "id": "M04",
+      "category": "Multiple changes",
+      "recipe_id": "77935",
+      "review_text": "I used 3 cups vegetable broth instead of chicken broth, reduced the ground ginger to 1 teaspoon, and omitted the peanut garnish.",
+      "expected": "Vegetable broth 3 cups; ground ginger 1 teaspoon; peanuts absent, no peanut garnish instruction remains. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": true
+    },
+    {
+      "id": "T01",
+      "category": "Technique",
+      "recipe_id": "10813",
+      "review_text": "I baked the cookies for 12 minutes instead of 10 minutes, at the same temperature.",
+      "expected": "Baking time 12 minutes, temperature unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "T02",
+      "category": "Technique",
+      "recipe_id": "45613",
+      "review_text": "I refrigerated the meat in the marinade for at least 4 hours instead of at least 2 hours.",
+      "expected": "Refrigerated marination at least 4 hours; ingredients unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "T03",
+      "category": "Technique",
+      "recipe_id": "10813",
+      "review_text": "I chilled the finished dough for 20 minutes before dropping spoonfuls onto the baking sheets.",
+      "expected": "Chill finished dough 20 minutes before dropping spoonfuls; baking unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": true
+    },
+    {
+      "id": "A01",
+      "category": "Addition",
+      "recipe_id": "10813",
+      "review_text": "I added 1 teaspoon finely grated orange zest when stirring in the flour.",
+      "expected": "Orange zest 1 teaspoon added to ingredients and flour mixing step. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "A02",
+      "category": "Addition",
+      "recipe_id": "77935",
+      "review_text": "I stirred in 1 tablespoon chopped fresh parsley just before serving.",
+      "expected": "Fresh parsley 1 tablespoon added to ingredients and finishing step before serving. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "R01",
+      "category": "Removal",
+      "recipe_id": "45613",
+      "review_text": "I left out the garlic entirely.",
+      "expected": "Garlic removed from ingredients and blender step. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "applied",
+      "repeat": false
+    },
+    {
+      "id": "N01",
+      "category": "No change",
+      "recipe_id": "10813",
+      "review_text": "These cookies were wonderful. My family loved them exactly as written.",
+      "expected": "Original unchanged; no enhanced recipe. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "skipped",
+      "repeat": false
+    },
+    {
+      "id": "N02",
+      "category": "Future only",
+      "recipe_id": "45613",
+      "review_text": "Next time I might replace the cherries with cranberries.",
+      "expected": "Future suggestion not applied; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "skipped",
+      "repeat": false
+    },
+    {
+      "id": "N03",
+      "category": "Negation",
+      "recipe_id": "10813",
+      "review_text": "I did not leave out the walnuts and I did not change the sugar. I followed the recipe exactly.",
+      "expected": "Negated changes not applied; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "skipped",
+      "repeat": false
+    },
+    {
+      "id": "N04",
+      "category": "Already satisfied",
+      "recipe_id": "10813",
+      "review_text": "I used exactly 1 cup of white sugar, just as the ingredient list says.",
+      "expected": "Already-satisfied quantity generates no edit; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "skipped",
+      "repeat": false
+    },
+    {
+      "id": "N05",
+      "category": "Ambiguous",
+      "recipe_id": "10813",
+      "review_text": "I reduced the sugar to half a cup.",
+      "expected": "White versus brown sugar unresolved; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "N06",
+      "category": "Ambiguous",
+      "recipe_id": "19117",
+      "review_text": "I halved the shortening.",
+      "expected": "Batter versus frosting shortening unresolved; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "N07",
+      "category": "Conflicting",
+      "recipe_id": "10813",
+      "review_text": "I cannot remember whether I used 1 egg or 4 eggs instead of 2.",
+      "expected": "Uncertain egg quantity withheld; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "N08",
+      "category": "Unspecified substitution",
+      "recipe_id": "10813",
+      "review_text": "I replaced the butter with oil, but I did not measure the oil and cannot say how much I used.",
+      "expected": "No invented oil quantity; original unchanged pending clarification. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "U01",
+      "category": "Unsupported conversion",
+      "recipe_id": "10813",
+      "review_text": "I reduced the flour by 100 grams, but I do not know the flour's weight per cup.",
+      "expected": "Unsupported mass-to-volume conversion withheld; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "U02",
+      "category": "Unsupported count unit",
+      "recipe_id": "144299",
+      "review_text": "I used 6 potatoes instead of 4 potatoes.",
+      "expected": "Current quantity parser does not support potato counts; needs_review, no partial edits. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "U03",
+      "category": "Invalid quantity",
+      "recipe_id": "10813",
+      "review_text": "I multiplied the amount of white sugar by zero.",
+      "expected": "Nonpositive quantity rejected rather than silently removing the ingredient. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    },
+    {
+      "id": "U04",
+      "category": "Invalid quantity",
+      "recipe_id": "10813",
+      "review_text": "I used minus one cup of white sugar.",
+      "expected": "Negative quantity rejected; original unchanged. Preserve all unrelated ingredients and instructions.",
+      "expected_status": "needs_review",
+      "repeat": false
+    }
+  ],
+  "recipes": {
+    "10813": {
+      "url": "https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/",
+      "scraped_at": "2025-09-25T00:24:21.951599",
+      "recipe_id": "10813",
+      "title": "Best Chocolate Chip Cookies",
+      "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+      "rating": {
+        "value": "4.6",
+        "count": "19353"
+      },
+      "preptime": "PT20M",
+      "cooktime": "PT10M",
+      "totaltime": "PT30M",
+      "servings": "48",
+      "ingredients": [
+        "1 cup butter, softened",
+        "1 cup white sugar",
+        "1 cup packed brown sugar",
+        "2 eggs",
+        "2 teaspoons vanilla extract",
+        "1 teaspoon baking soda",
+        "2 teaspoons hot water",
+        "0.5 teaspoon salt",
+        "3 cups all-purpose flour",
+        "2 cups semisweet chocolate chips",
+        "1 cup chopped walnuts"
+      ],
+      "instructions": [
+        "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+        "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+        "Beat in eggs, one at a time, then stir in vanilla.",
+        "Dissolve baking soda in hot water. Add to batter along with salt.",
+        "Stir in flour, chocolate chips, and walnuts.",
+        "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+        "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+        "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+        "Store in an airtight container or serve immediately and enjoy!"
+      ],
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "146 kcal",
+        "carbohydrateContent": "19 g",
+        "cholesterolContent": "10 mg",
+        "fiberContent": "1 g",
+        "proteinContent": "2 g",
+        "saturatedFatContent": "4 g",
+        "sodiumContent": "76 mg",
+        "fatContent": "8 g",
+        "unsaturatedFatContent": "0 g"
+      },
+      "author": "[{'@type': 'Person', 'name': 'Dora'}]",
+      "categories": [
+        "Dessert"
+      ],
+      "featured_tweaks": [
+        {
+          "text": "I used an ice cream scoop, that made 16 big cookies. I did add an additional egg yolk to help keep the cookie chewy.They turned out fantastic.",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "These are awesome cookies. I followed the advice of others by making the following tweaks: (1) I used a half cup of sugar and one-and-a-half cups of brown sugar; (2) I omitted the water; (3) I added a teaspoon of cream of tartar to the batter; (4) I refrigerated the batter for at least an hour before scooping and baking. The cookies retained their shape and didn't spread when baked. I think the cream of tartar made a difference, and the cookies did not come out too cakey either! This recipe is going in my \"favorites\" cookbook.",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "The first batch that I made was a bit bland. But I did love that they weren't flat! They are a nice thick, chewy cookie. The second batch I used 1 tsp. of salt instead of 1/2 tsp. and omitted the nuts. This was better, but still not quite as flavorful at the traditional Tollhouse cookie recipe. I found that if I pressed them down slightly before baking that worked the best.If I were to rate this recipe on look and texture, it would be a 5. But the flavor falls a bit flat for me. I may keep trying to see how I can make it taste better, but maintain the aesthetic.",
+          "rating": 3,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        }
+      ],
+      "reviews": [
+        {
+          "text": "I used an ice cream scoop, that made 16 big cookies. I did add an additional egg yolk to help keep the cookie chewy.They turned out fantastic.",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "These are awesome cookies. I followed the advice of others by making the following tweaks: (1) I used a half cup of sugar and one-and-a-half cups of brown sugar; (2) I omitted the water; (3) I added a teaspoon of cream of tartar to the batter; (4) I refrigerated the batter for at least an hour before scooping and baking. The cookies retained their shape and didn't spread when baked. I think the cream of tartar made a difference, and the cookies did not come out too cakey either! This recipe is going in my \"favorites\" cookbook.",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "It is a great recipe",
+          "rating": 5
+        },
+        {
+          "text": "The first batch that I made was a bit bland. But I did love that they weren't flat! They are a nice thick, chewy cookie. The second batch I used 1 tsp. of salt instead of 1/2 tsp. and omitted the nuts. This was better, but still not quite as flavorful at the traditional Tollhouse cookie recipe. I found that if I pressed them down slightly before baking that worked the best.If I were to rate this recipe on look and texture, it would be a 5. But the flavor falls a bit flat for me. I may keep trying to see how I can make it taste better, but maintain the aesthetic.",
+          "rating": 3,
+          "has_modification": true
+        },
+        {
+          "text": "Well I am not a Baker by any means but these cookies were very easily prepared. The whole family enjoys these. Thanks so much",
+          "rating": 4
+        },
+        {
+          "text": "They taste good and were so soft. I had my grandmother try it (she’s the cook of the family) and she said they were good. That made me happy. I would use this recipe again. These were my first batch of cookies.",
+          "rating": 5
+        },
+        {
+          "text": "I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "This is my favorite cookie recipe, been making it for 15 years.",
+          "rating": 5
+        },
+        {
+          "text": "This is an amazing recipe. I followed it EXACTLY. I will make it many times.",
+          "rating": 5
+        }
+      ]
+    },
+    "144299": {
+      "url": "https://www.allrecipes.com/recipe/144299/nikujaga-japanese-style-meat-and-potatoes/",
+      "scraped_at": "2025-09-25T00:24:24.507707",
+      "recipe_id": "144299",
+      "title": "Nikujaga (Japanese-Style Meat and Potatoes)",
+      "description": "This main dish recipe features sliced beef sirloin cooked with potatoes, and onion in a sauce made with prepared dashi soup, sake, and soy sauce.",
+      "rating": {
+        "value": "4.6",
+        "count": "20"
+      },
+      "preptime": "PT15M",
+      "cooktime": "PT35M",
+      "totaltime": "PT50M",
+      "servings": "4",
+      "ingredients": [
+        "8 snow peas",
+        "1 tablespoon vegetable oil",
+        "0.25 pound sirloin steak, thinly sliced",
+        "4 potatoes, cut into bite sized pieces",
+        "2 cups dashi soup",
+        "0.25 cup soy sauce",
+        "0.25 cup sake",
+        "1 tablespoon white sugar",
+        "1 onion, chopped"
+      ],
+      "instructions": [
+        "Put the snow peas in a small saucepan with enough water to cover; bring to a boil and immediately remove from heat. Drain and set aside.",
+        "Heat the oil in a large skillet over medium heat; cook the beef in the oil until browned. Add the potatoes; cook and stir until soft, 5 to 7 minutes. Stir the dashi soup, soy sauce, sake, and sugar into the mixture; simmer for 10 minutes.",
+        "Reduce heat to low and scatter the chopped onion over the mixture; allow to simmer until the liquid is nearly completely evaporated, about 15 minutes more. Top the mixture with the snow peas to serve."
+      ],
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "316 kcal",
+        "carbohydrateContent": "48 g",
+        "cholesterolContent": "13 mg",
+        "fiberContent": "6 g",
+        "proteinContent": "14 g",
+        "saturatedFatContent": "2 g",
+        "sodiumContent": "1109 mg",
+        "sugarContent": "9 g",
+        "fatContent": "6 g",
+        "unsaturatedFatContent": "0 g"
+      },
+      "author": "[{'@type': 'Person', 'name': 'Hinata'}]",
+      "categories": [
+        "Dinner"
+      ],
+      "featured_tweaks": [
+        {
+          "text": "Overall it was pretty good but the measurements were way off. HAS to be a typo. 1/4lb of meat to serve 4??? I used a lil over 1lb and it even then it was swimming in the broth. After following the recipe, i added extra soy and sugar only because i thought the flavor was a little on the lite side. Overall good.** If you cant find dashi, beef broth/stock works just fine. My japanese mom happen to have some so i was able to get some from her.",
+          "rating": 4,
+          "has_modification": true,
+          "is_featured": true
+        }
+      ],
+      "reviews": [
+        {
+          "text": "Great recipe and not hard, even for someone like me who never cooks. The taste is really good, but i agree with everyone else about the measurements. You need at least a 1lb of beef for this. Also, I threw in carrots since i had them around.",
+          "rating": 5
+        },
+        {
+          "text": "Overall it was pretty good but the measurements were way off. HAS to be a typo. 1/4lb of meat to serve 4??? I used a lil over 1lb and it even then it was swimming in the broth. After following the recipe, i added extra soy and sugar only because i thought the flavor was a little on the lite side. Overall good.** If you cant find dashi, beef broth/stock works just fine. My japanese mom happen to have some so i was able to get some from her.",
+          "rating": 4,
+          "has_modification": true
+        }
+      ]
+    },
+    "19117": {
+      "url": "https://www.allrecipes.com/recipe/19117/spicy-apple-cake/",
+      "scraped_at": "2025-09-25T00:24:23.934660",
+      "recipe_id": "19117",
+      "title": "Spicy Apple Cake",
+      "description": "This delicious spicy apple cake recipe is made with fresh apples, spices, and sugar. It&#39;s a wonderfully perfect treat for the apple harvest season.",
+      "rating": {
+        "value": "4.7",
+        "count": "79"
+      },
+      "preptime": "PT25M",
+      "cooktime": "PT45M",
+      "totaltime": "PT70M",
+      "servings": "9",
+      "ingredients": [
+        "1.5 cups all-purpose flour",
+        "1 teaspoon ground cinnamon",
+        "1 teaspoon baking powder",
+        "0.5 teaspoon baking soda",
+        "0.5 teaspoon salt",
+        "0.5 teaspoon ground nutmeg",
+        "1 cup brown sugar",
+        "0.5 cup shortening",
+        "0.25 cup white sugar",
+        "2 eggs",
+        "1 teaspoon vanilla extract",
+        "0.5 cup milk",
+        "2 cups apple - peeled, cored, and chopped",
+        "2 cups sifted confectioners' sugar",
+        "0.25 cup shortening",
+        "0.25 teaspoon ground cinnamon",
+        "1 pinch ground nutmeg",
+        "0.25 cup evaporated milk"
+      ],
+      "instructions": [
+        "Preheat the oven to 350 degrees F (175 degrees C). Grease and flour a 9-inch square pan.",
+        "Sift together flour, 1 teaspoon cinnamon, baking powder, baking soda, salt, and nutmeg. Set aside.",
+        "Cream brown sugar, 1/2 cup shortening, and white sugar together in a large bowl until light and fluffy. Beat in eggs one at a time, then stir in vanilla. Beat in flour mixture alternately with milk, mixing until just combined. Stir in chopped apples.",
+        "Spread batter evenly in the prepared pan. Bake in the preheated oven until a toothpick inserted into the center of cake comes out clean, 35 to 40 minutes. Let cool.",
+        "Combine confectioners&#39; sugar, 1/4 cup shortening, 1/4 teaspoon cinnamon, and nutmeg in a medium bowl. Beat until frosting is light and creamy. Beat in evaporated milk 1 tablespoon at a time until desired spreading consistency is reached. Spread over top of cooled cake."
+      ],
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "468 kcal",
+        "carbohydrateContent": "71 g",
+        "cholesterolContent": "44 mg",
+        "fiberContent": "2 g",
+        "proteinContent": "5 g",
+        "saturatedFatContent": "5 g",
+        "sodiumContent": "273 mg",
+        "sugarContent": "53 g",
+        "fatContent": "19 g",
+        "unsaturatedFatContent": "0 g"
+      },
+      "author": "[{'@type': 'Person', 'name': 'Linda'}]",
+      "categories": [
+        "Dessert"
+      ],
+      "featured_tweaks": [
+        {
+          "text": "Mmmm, this cake was so good. I made it exactly as directed except I used a different frosting only because I had some leftover from another cake. The next time I make this I will add one more cup of apples because more is better right?!",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "Will make this one again! (maybe for Thanksgiving dessert) I would prefer some more apple chunks in it, but that is just my preference. This cake is sweet and delicious.",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        }
+      ],
+      "reviews": [
+        {
+          "text": "Mmmm, this cake was so good. I made it exactly as directed except I used a different frosting only because I had some leftover from another cake. The next time I make this I will add one more cup of apples because more is better right?!",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "Will make this one again! (maybe for Thanksgiving dessert) I would prefer some more apple chunks in it, but that is just my preference. This cake is sweet and delicious.",
+          "rating": 5,
+          "has_modification": true
+        }
+      ]
+    },
+    "45613": {
+      "url": "https://www.allrecipes.com/recipe/45613/mango-teriyaki-marinade/",
+      "scraped_at": "2025-09-25T00:24:24.212122",
+      "recipe_id": "45613",
+      "title": "Mango Teriyaki Marinade",
+      "description": "Use this sweet and tangy marinade on chicken or pork!",
+      "rating": {
+        "value": "4.3",
+        "count": "12"
+      },
+      "preptime": "PT10M",
+      "totaltime": "PT130M",
+      "servings": "8",
+      "ingredients": [
+        "1.5 cups mango nectar",
+        "1.5 cups teriyaki sauce",
+        "0.75 cup dried cherries",
+        "1 clove garlic, peeled and crushed",
+        "salt and pepper to taste"
+      ],
+      "instructions": [
+        "In a blender, thoroughly mix mango nectar, teriyaki sauce, dried cherries, garlic, salt and pepper. In the refrigerator, marinate meat in the mixture at least 2 hours before grilling as desired."
+      ],
+      "author": "[{'@type': 'Person', 'name': 'Anna Oliva'}]",
+      "categories": [
+        "Condiment"
+      ],
+      "featured_tweaks": [],
+      "reviews": []
+    },
+    "77935": {
+      "url": "https://www.allrecipes.com/recipe/77935/creamy-sweet-potato-with-ginger-soup/",
+      "scraped_at": "2025-09-25T00:24:24.817119",
+      "recipe_id": "77935",
+      "title": "Creamy Sweet Potato With Ginger Soup",
+      "description": "Made with sweet potatoes and seasoned with ginger, nutmeg, and cayenne pepper, this creamy soup is topped with honey-roasted peanuts.",
+      "rating": {
+        "value": "4.6",
+        "count": "87"
+      },
+      "totaltime": "PT0M",
+      "servings": "8",
+      "ingredients": [
+        "2 tablespoons olive oil",
+        "1.5 pounds peeled raw sweet potatoes, cut into 1-inch chunks",
+        "1 large onion, cut into large dice",
+        "1 tablespoon butter",
+        "1 pinch sugar",
+        "3 large garlic cloves, thickly sliced",
+        "1.5 teaspoons ground ginger",
+        "0.5 teaspoon ground nutmeg",
+        "0.125 teaspoon cayenne pepper",
+        "3 cups chicken broth, homemade or from a carton or can",
+        "1.5 cups half-and-half (or whole milk)",
+        "Salt and freshly ground pepper, to taste",
+        "Garnish: chopped honey-roasted peanuts"
+      ],
+      "instructions": [
+        "Gather the ingredients.",
+        "Heat oil over medium-high heat in a large, deep saute pan until shimmering. Add sweet potatoes, then onion; saute, stirring very little at first, then more frequently, until vegetables start to turn golden brown, 7 to 8 minutes.",
+        "Reduce heat to low and add butter, sugar and garlic; continue cooking until all vegetables are a rich spotty caramel color, about 10 minutes longer.",
+        "Add ginger, nutmeg and cayenne pepper; continue to saute until fragrant, 30 seconds to 1 minute longer.",
+        "Add broth; bring to a simmer over medium-high heat. Reduce heat to low and simmer, partially covered, until sweet potatoes are tender, about 10 minutes.",
+        "Using an immersion blender or traditional blender, puree until very smooth, 30 seconds to 1 minute. (If using a traditional blender, vent it either by removing the lid&#39;s pop-out center or by lifting one edge of the lid. Drape the blender canister with a kitchen towel. To &#39;clean&#39; the canister, pour in a little half-and-half, blend briefly, then add to the soup.)",
+        "Return to pan (or a soup pot); add enough half-and-half so the mixture is souplike, yet thick enough to float garnish. Taste, and add salt and pepper if needed. Heat through, ladle into bowls, garnish and serve."
+      ],
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "194 kcal",
+        "carbohydrateContent": "22 g",
+        "cholesterolContent": "38 mg",
+        "fiberContent": "3 g",
+        "proteinContent": "4 g",
+        "saturatedFatContent": "5 g",
+        "sodiumContent": "91 mg",
+        "sugarContent": "5 g",
+        "fatContent": "11 g",
+        "unsaturatedFatContent": "0 g"
+      },
+      "author": "[{'@type': 'Person', 'name': 'USA WEEKEND columnist Pam Anderson'}]",
+      "categories": [
+        "Soup"
+      ],
+      "featured_tweaks": [
+        {
+          "text": "I made this with canned yams. I added roasted Brussels Sprouts and peppers. I drizzled heavy cream at the end. Loved the contrast of the roasted greens to the sweet and spicy. Turned out amazing!",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "It was amazing!! The portion is only enough for 2-3 people. Very good as is but when I make it again I will use fresh ginger to give it more of a ginger flavour.",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "I had one large sweet potato that needed to be used, and 3 white potatoes, so I used those to make this soup. I also substituted 2% milk instead of half-and-half or whole milk. It turned out delicious! I highly recommend it. Thanks for sharing the recipe.",
+          "rating": 5,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "Def has a kick! Very thick.. Even w 2% milk- will use more broth next time. Used fresh grated ginger. Hearty and yummy!",
+          "rating": 4,
+          "has_modification": true,
+          "is_featured": true
+        },
+        {
+          "text": "Great soup! The vegetables caramelize beautifully with this method (though I think it would also work fine in the oven, which would take longer but keep my hands free for other things). I added extra cayenne pepper, lots of black pepper, and used heavy cream instead of 1/2 & 1/2; otherwise followed as written. I didn't find it at all too sweet - these are sweet potatoes, after all. Thanks for the recipe!",
+          "rating": 4,
+          "has_modification": true,
+          "is_featured": true
+        }
+      ],
+      "reviews": [
+        {
+          "text": "I made this with canned yams. I added roasted Brussels Sprouts and peppers. I drizzled heavy cream at the end. Loved the contrast of the roasted greens to the sweet and spicy. Turned out amazing!",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "I kinda followed this recipe, how much is 1.5lbs of sweet potato any ways, was pretty awesome!! However, I forgot to get ground ginger and used minced, they don't measure out the same... lolI shared it with my cooking friends and we all really liked it, even if the ginger was rowdy AF..",
+          "rating": 5
+        },
+        {
+          "text": "It was amazing!! The portion is only enough for 2-3 people. Very good as is but when I make it again I will use fresh ginger to give it more of a ginger flavour.",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "I had one large sweet potato that needed to be used, and 3 white potatoes, so I used those to make this soup. I also substituted 2% milk instead of half-and-half or whole milk. It turned out delicious! I highly recommend it. Thanks for sharing the recipe.",
+          "rating": 5,
+          "has_modification": true
+        },
+        {
+          "text": "Def has a kick! Very thick.. Even w 2% milk- will use more broth next time. Used fresh grated ginger. Hearty and yummy!",
+          "rating": 4,
+          "has_modification": true
+        },
+        {
+          "text": "Great soup! The vegetables caramelize beautifully with this method (though I think it would also work fine in the oven, which would take longer but keep my hands free for other things). I added extra cayenne pepper, lots of black pepper, and used heavy cream instead of 1/2 & 1/2; otherwise followed as written. I didn't find it at all too sweet - these are sweet potatoes, after all. Thanks for the recipe!",
+          "rating": 4,
+          "has_modification": true
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "max_incorrect_publications": 0,
+    "min_supported_completion": 0.95,
+    "repeat_total_per_selected_case": 5
+  },
+  "source_hashes": {
+    "src\\api.py": "24f2900ca397a090be322dd09f6a80d979c458ef2ebe6dcce0e68bdde4ae9c38",
+    "src\\scraper_v2.py": "7ce133d3411f76355797d59f7357933942493ec26385a21c77330da2d463fc8d",
+    "src\\test_pipeline.py": "bf2f0e658c90d67fd96674df704f6ec8fe626cf1a131037290614835a48af92b",
+    "src\\llm_pipeline\\consistency.py": "7f62eaa3c3f01d3f145e961a26e2f1b973fe8f551b1b753d580fe5656e5425a0",
+    "src\\llm_pipeline\\dependencies.py": "e2761eb24a82f39f140b12a07d27b800daa805fe39665aa4e229e8a0045642bb",
+    "src\\llm_pipeline\\enhanced_recipe_generator.py": "968f22f5054e9f381d2a05ef2b8318655196c93dcd8198917d8471f8854bcbab",
+    "src\\llm_pipeline\\grounded.py": "c7d5d66dfd1e272834e5233fc05fc746dc8abdb0da9ecbc7d9c1be9a52f22fa1",
+    "src\\llm_pipeline\\models.py": "85305ee443e9dde60a30c71f5c6b3b6414b95a087dda216177d38520470ebf93",
+    "src\\llm_pipeline\\pipeline.py": "ae9ca764759d2a002ddb2f9b19acfc7aa7aa8a0baf08d008c8fca2af4f3be004",
+    "src\\llm_pipeline\\prompts.py": "2ebe71053c5ae71ec6e2ad2658bd2af5f5cb3d9cefe43ba2c8cc9a05ecc875d9",
+    "src\\llm_pipeline\\recipe_modifier.py": "cdaad2112e2c7b2f02dbd008bba77054fbede2f21290229982e65b18ec6b741e",
+    "src\\llm_pipeline\\tweak_extractor.py": "44707186f61f03a4f17806c1769ee713764f2012ce32faa8384a9664c8b22e21",
+    "src\\llm_pipeline\\workflow.py": "458981ccd00dd5ec7189545be7c478d41b150a233fb8dda7c3352d5880a79a88",
+    "src\\llm_pipeline\\__init__.py": "1c67eea8971a035abbbbf1c13f91b907d203a474a8c9c55445a1c59996c1f624"
+  }
+}

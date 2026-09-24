@@ -65,7 +65,7 @@ def explicit_change_issues(candidate: ModificationResult) -> list[str]:
         line = change.to_text if change.operation == "add" else change.from_text
         match = re.fullmatch(
             r"(?:[\d./]+(?:\s+[\d/]+)?|a|an|one)\s+"
-            r"(?:cups?|teaspoons?|tablespoons?|tsp|tbsp|pounds?|ounces?|grams?|"
+            r"(?:tiny\s+)?(?:cups?|teaspoons?|tablespoons?|tsp|tbsp|pounds?|ounces?|grams?|"
             r"kilograms?|pinch|dash)\s+(?:of\s+)?"
             r"(?:(?:chopped|ground|fresh|hot|cold|packed|sifted)\s+)*"
             r"([a-z]+(?: [a-z]+){0,3})", line.lower()
@@ -112,7 +112,7 @@ def enforce_consistency(original: Recipe, result: ModificationResult, extractor)
     """Shared publication gate for CLI and API; rejected results retain no changes."""
     if result.status != "applied":
         return result, None
-    model = os.getenv("CONSISTENCY_MODEL", "gpt-4o-mini")
+    model = os.getenv("CONSISTENCY_MODEL", "gpt-4.1")
     check = check_consistency(extractor.client, model, original, result)
     if check.status == "consistent":
         return result, check

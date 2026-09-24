@@ -21,6 +21,10 @@ from .prompts import SYSTEM_PROMPT, build_simple_prompt
 class TweakExtractor:
     """Extracts structured modifications from review text using LLM processing."""
 
+    def plan_review(self, review: Review, recipe: Recipe):
+        from .grounded import GroundedPlanner
+        return GroundedPlanner(self).plan(review, recipe)
+
     def __init__(self, api_key: Optional[str] = None, model: str = "gpt-3.5-turbo"):
         """
         Initialize the TweakExtractor.

@@ -9,6 +9,7 @@ from fastapi.testclient import TestClient
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 from api import create_app, get_extractor
 from llm_pipeline.models import ModificationObject
+from llm_pipeline.grounded import PlanningResult
 from llm_pipeline.consistency import ConsistencyCheck
 
 
@@ -20,6 +21,10 @@ class ApiTests(unittest.TestCase):
         self.addCleanup(audit_patch.stop)
         self.app = create_app()
         self.extractor = Mock()
+        self.extractor.plan_review.side_effect = lambda *_: (
+            PlanningResult(status="ready", modification=self.extractor.extract_modification.return_value)
+            if self.extractor.extract_modification.return_value is not None
+            else PlanningResult(status="failed", issues=["Provider unavailable"]))
         self.app.dependency_overrides[get_extractor] = lambda: self.extractor
         self.client = TestClient(self.app)
         self.plan = {"modification_type": "quantity_adjustment", "reasoning": "Less sugar",
@@ -35,7 +40,7 @@ class ApiTests(unittest.TestCase):
         detail = self.client.get("/recipes/10813").json()
         self.assertEqual(detail["reviews"][0]["review_index"], 0)
         self.assertEqual(self.client.get("/recipes/unknown").status_code, 404)
-        self.extractor.extract_modification.assert_not_called()
+        self.extractor.plan_review.assert_not_called()
 
     def test_preview_and_noop_rejection(self):
         response = self.client.post("/recipes/10813/preview", json=self.plan)
@@ -46,7 +51,7 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(rejected["result"]["reason"], "target_not_found")
         self.assertEqual(rejected["result"]["changes"], [])
         self.assertEqual(rejected["original"], rejected["result"]["recipe"])
-        self.extractor.extract_modification.assert_not_called()
+        self.extractor.plan_review.assert_not_called()
 
     def test_live_success_with_mock_provider(self):
         self.extractor.extract_modification.return_value = ModificationObject(**self.plan)
@@ -72,7 +77,7 @@ class ApiTests(unittest.TestCase):
             with self.subTest(status=status):
                 self.audit.return_value = ConsistencyCheck(status=status, issues=["Preparation cannot be verified"])
                 body = self.client.post("/recipes/10813/enhance", json={"review_index": 0}).json()
-                self.assertEqual(body["status"], "failed")
+                self.assertEqual(body["status"], "needs_review" if status == "inconsistent" else "failed")
                 self.assertEqual(body["result"]["reason"], reason)
                 self.assertIsNone(body["enhanced_recipe"])
                 self.assertEqual(body["original"], body["result"]["recipe"])
@@ -94,13 +99,27 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(self.client.post("/recipes/284494/enhance", json={"review_index": 0}).status_code, 404)
         self.plan["edits"][0].pop("replace")
         self.assertEqual(self.client.post("/recipes/10813/preview", json=self.plan).status_code, 422)
-        self.extractor.extract_modification.assert_not_called()
+        self.extractor.plan_review.assert_not_called()
 
     def test_provider_failure(self):
         self.extractor.extract_modification.return_value = None
         response = self.client.post("/recipes/10813/enhance", json={"review_index": 0})
         self.assertEqual(response.status_code, 502)
-        self.assertEqual(response.json()["detail"]["code"], "extraction_failed")
+        self.assertEqual(response.json()["detail"]["code"], "planning_failed")
+
+    def test_skipped_and_unresolved_reviews_preserve_recipe(self):
+        for status in ["skipped", "needs_review"]:
+            with self.subTest(status=status):
+                self.extractor.plan_review.side_effect = None
+                self.extractor.plan_review.return_value = PlanningResult(status=status, issues=["No actionable resolved changes"])
+                response = self.client.post("/recipes/10813/enhance", json={"review_text": "Next time I might halve sugar."})
+                self.assertEqual(response.status_code, 200)
+                body = response.json()
+                self.assertEqual(body["status"], status)
+                self.assertEqual(body["original"], body["result"]["recipe"])
+                self.assertEqual(body["result"]["changes"], [])
+                self.assertIsNone(body["enhanced_recipe"])
+                self.audit.assert_not_called()
 
     def test_key_missing_only_blocks_live_endpoint(self):
         self.app.dependency_overrides.clear()

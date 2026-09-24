@@ -1,0 +1,1089 @@
+{
+  "created_at": "2026-09-24T08:53:48.160902+00:00",
+  "interpretation_model": "gpt-4o-mini",
+  "fidelity_model": "gpt-4.1",
+  "consistency_model": "gpt-4.1",
+  "repair_model": "gpt-4.1",
+  "cases": [
+    {
+      "id": "new_cocoa_and_sugar",
+      "expected": [
+        "Sugar becomes 3/4 cup; pinch of cocoa powder appears in ingredients and preparation; flour, eggs and baking time unchanged; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "cocoa",
+          "title": "Simple batter",
+          "ingredients": [
+            "1 cup sugar",
+            "2 cups flour",
+            "2 eggs"
+          ],
+          "instructions": [
+            "Beat eggs and sugar. Stir in flour.",
+            "Bake for 20 minutes."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used 3/4 cup sugar instead of a cup and added a pinch of cocoa powder to the batter.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used 3/4 cup sugar instead of a cup",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "sugar",
+                "amount_mode": "absolute",
+                "amount": "3/4",
+                "unit": "cup",
+                "description": "reduced amount of sugar"
+              },
+              {
+                "id": "2",
+                "source_quote": "added a pinch of cocoa powder to the batter",
+                "action": "add",
+                "timing": "performed",
+                "target": "cocoa powder",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "added cocoa powder"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup sugar",
+                "replace": "3/4 cup sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "add_after",
+                "find": "3/4 cup sugar",
+                "replace": null,
+                "add": "1 pinch cocoa powder"
+              },
+              {
+                "target": "instructions",
+                "operation": "add_after",
+                "find": "Beat eggs and sugar. Stir in flour.",
+                "replace": null,
+                "add": "Add cocoa powder to the batter and mix well."
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "2"
+            ],
+            [
+              "2"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 182,
+                "prompt_tokens": 765,
+                "total_tokens": 947,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 3/4 cup sugar instead of a cup\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"sugar\",\n      \"description\": \"reduced amount of sugar\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"3/4\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"added a pinch of cocoa powder to the batter\",\n      \"action\": \"add\",\n      \"timing\": \"performed\",\n      \"target\": \"cocoa powder\",\n      \"description\": \"added cocoa powder\",\n      \"amount_mode\": null,\n      \"amount\": null,\n      \"unit\": null\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 70,
+                "prompt_tokens": 981,
+                "total_tokens": 1051,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"ingredients\",\"operation\":\"add_after\",\"find\":\"3/4 cup sugar\",\"add\":\"1 pinch cocoa powder\",\"intent_ids\":[\"2\"]},{\"target\":\"instructions\",\"operation\":\"add_after\",\"find\":\"Stir in flour.\",\"add\":\"Add cocoa powder to the batter and mix well.\",\"intent_ids\":[\"2\"]}]}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 126,
+                "prompt_tokens": 1176,
+                "total_tokens": 1302,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 1024
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"add_after\",\n      \"find\": \"3/4 cup sugar\",\n      \"replace\": null,\n      \"add\": \"1 pinch cocoa powder\",\n      \"intent_ids\": [\"2\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"add_after\",\n      \"find\": \"Beat eggs and sugar. Stir in flour.\",\n      \"replace\": null,\n      \"add\": \"Add cocoa powder to the batter and mix well.\",\n      \"intent_ids\": [\"2\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 854,
+                "total_tokens": 866,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Edit plan could not be completely applied: target_not_found",
+            "Failed add_after in instructions: find='Stir in flour.'. Use an exact entire entry from that target array for add_after/remove; do not use a sentence fragment or an entry from the other array."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup sugar",
+              "replace": "3/4 cup sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "add_after",
+              "find": "3/4 cup sugar",
+              "replace": null,
+              "add": "1 pinch cocoa powder"
+            },
+            {
+              "target": "instructions",
+              "operation": "add_after",
+              "find": "Beat eggs and sugar. Stir in flour.",
+              "replace": null,
+              "add": "Add cocoa powder to the batter and mix well."
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "cocoa_enhanced",
+          "original_recipe_id": "cocoa",
+          "title": "Simple batter (Community Enhanced)",
+          "ingredients": [
+            "3/4 cup sugar",
+            "1 pinch cocoa powder",
+            "2 cups flour",
+            "2 eggs"
+          ],
+          "instructions": [
+            "Beat eggs and sugar. Stir in flour.",
+            "Add cocoa powder to the batter and mix well.",
+            "Bake for 20 minutes."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used 3/4 cup sugar instead of a cup and added a pinch of cocoa powder to the batter.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup sugar",
+                  "to_text": "3/4 cup sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "",
+                  "to_text": "1 pinch cocoa powder",
+                  "operation": "add"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "",
+                  "to_text": "Add cocoa powder to the batter and mix well.",
+                  "operation": "add"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 3,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:53:54.082757",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "cocoa_modified",
+            "title": "Simple batter",
+            "ingredients": [
+              "3/4 cup sugar",
+              "1 pinch cocoa powder",
+              "2 cups flour",
+              "2 eggs"
+            ],
+            "instructions": [
+              "Beat eggs and sugar. Stir in flour.",
+              "Add cocoa powder to the batter and mix well.",
+              "Bake for 20 minutes."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup sugar",
+              "to_text": "3/4 cup sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "",
+              "to_text": "1 pinch cocoa powder",
+              "operation": "add"
+            },
+            {
+              "type": "instruction",
+              "from_text": "",
+              "to_text": "Add cocoa powder to the batter and mix well.",
+              "operation": "add"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "new_water_dependency",
+      "expected": [
+        "Water removed from both ingredients and use; baking soda and salt retain preparation steps; eggs become 3; chill 30 minutes before scooping and baking; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "water",
+          "title": "Small batch cookies",
+          "ingredients": [
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "1/2 teaspoon salt",
+            "2 cups flour",
+            "2 eggs"
+          ],
+          "instructions": [
+            "Beat eggs. Stir in flour.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Scoop dough onto a tray.",
+            "Bake for 12 minutes."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I omitted the water, used 3 eggs instead of 2, and chilled the dough for 30 minutes before scooping and baking.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "omitted the water",
+                "action": "remove",
+                "timing": "performed",
+                "target": "hot water",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Removed the hot water from the recipe."
+              },
+              {
+                "id": "2",
+                "source_quote": "used 3 eggs instead of 2",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "eggs",
+                "amount_mode": "add",
+                "amount": "1",
+                "unit": "count",
+                "description": "Increased the number of eggs from 2 to 3."
+              },
+              {
+                "id": "3",
+                "source_quote": "chilled the dough for 30 minutes before scooping and baking",
+                "action": "technique",
+                "timing": "performed",
+                "target": "chilling the dough",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Chilled the dough for 30 minutes before scooping and baking."
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "removal",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "2 eggs",
+                "replace": "3 eggs",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "remove",
+                "find": "2 teaspoons hot water",
+                "replace": null,
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Dissolve baking soda in hot water. Add to batter along with salt.",
+                "replace": "Add baking soda and salt to the batter.",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Scoop dough onto a tray.",
+                "replace": "Chill the dough for 30 minutes.\nScoop dough onto a tray.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "2"
+            ],
+            [
+              "1"
+            ],
+            [
+              "1"
+            ],
+            [
+              "3"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 276,
+                "prompt_tokens": 807,
+                "total_tokens": 1083,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"omitted the water\",\n      \"action\": \"remove\",\n      \"timing\": \"performed\",\n      \"target\": \"hot water\",\n      \"description\": \"Removed the hot water from the recipe.\",\n      \"amount_mode\": null,\n      \"amount\": null,\n      \"unit\": null\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"used 3 eggs instead of 2\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"eggs\",\n      \"description\": \"Increased the number of eggs from 2 to 3.\",\n      \"amount_mode\": \"add\",\n      \"amount\": \"1\",\n      \"unit\": \"count\"\n    },\n    {\n      \"id\": \"3\",\n      \"source_quote\": \"chilled the dough for 30 minutes before scooping and baking\",\n      \"action\": \"technique\",\n      \"timing\": \"performed\",\n      \"target\": \"chilling the dough\",\n      \"description\": \"Chilled the dough for 30 minutes before scooping and baking.\",\n      \"amount_mode\": null,\n      \"amount\": null,\n      \"unit\": null\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 105,
+                "prompt_tokens": 1100,
+                "total_tokens": 1205,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"2 teaspoons hot water\",\n      \"intent_ids\": [\"1\"],\n      \"replace\": null\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"add_after\",\n      \"find\": \"Scoop dough onto a tray.\",\n      \"add\": \"Chill the dough for 30 minutes.\",\n      \"intent_ids\": [\"3\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 191,
+                "prompt_tokens": 1279,
+                "total_tokens": 1470,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"remove\",\n      \"find\": \"2 teaspoons hot water\",\n      \"replace\": null,\n      \"add\": null,\n      \"intent_ids\": [\"1\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Dissolve baking soda in hot water. Add to batter along with salt.\",\n      \"replace\": \"Add baking soda and salt to the batter.\",\n      \"add\": null,\n      \"intent_ids\": [\"1\"]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"Scoop dough onto a tray.\",\n      \"replace\": \"Chill the dough for 30 minutes.\\nScoop dough onto a tray.\",\n      \"add\": null,\n      \"intent_ids\": [\"3\"]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 1046,
+                "total_tokens": 1058,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Removed ingredient 'water' is still used in the final instructions.",
+            "Instruction order must implement 'chilled the dough for 30 minutes before scooping and baking': place chilling before the actual shaping/baking step."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "removal",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "2 eggs",
+              "replace": "3 eggs",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "remove",
+              "find": "2 teaspoons hot water",
+              "replace": null,
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "replace": "Add baking soda and salt to the batter.",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Scoop dough onto a tray.",
+              "replace": "Chill the dough for 30 minutes.\nScoop dough onto a tray.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "water_enhanced",
+          "original_recipe_id": "water",
+          "title": "Small batch cookies (Community Enhanced)",
+          "ingredients": [
+            "1 teaspoon baking soda",
+            "1/2 teaspoon salt",
+            "2 cups flour",
+            "3 eggs"
+          ],
+          "instructions": [
+            "Beat eggs. Stir in flour.",
+            "Add baking soda and salt to the batter.",
+            "Chill the dough for 30 minutes.\nScoop dough onto a tray.",
+            "Bake for 12 minutes."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I omitted the water, used 3 eggs instead of 2, and chilled the dough for 30 minutes before scooping and baking.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "removal",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "2 eggs",
+                  "to_text": "3 eggs",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "2 teaspoons hot water",
+                  "to_text": "",
+                  "operation": "remove"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Dissolve baking soda in hot water. Add to batter along with salt.",
+                  "to_text": "Add baking soda and salt to the batter.",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Scoop dough onto a tray.",
+                  "to_text": "Chill the dough for 30 minutes.\nScoop dough onto a tray.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 4,
+            "change_types": [
+              "removal"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:02.187504",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "water_modified",
+            "title": "Small batch cookies",
+            "ingredients": [
+              "1 teaspoon baking soda",
+              "1/2 teaspoon salt",
+              "2 cups flour",
+              "3 eggs"
+            ],
+            "instructions": [
+              "Beat eggs. Stir in flour.",
+              "Add baking soda and salt to the batter.",
+              "Chill the dough for 30 minutes.\nScoop dough onto a tray.",
+              "Bake for 12 minutes."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "2 eggs",
+              "to_text": "3 eggs",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "2 teaspoons hot water",
+              "to_text": "",
+              "operation": "remove"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "to_text": "Add baking soda and salt to the batter.",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Scoop dough onto a tray.",
+              "to_text": "Chill the dough for 30 minutes.\nScoop dough onto a tray.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "new_technique_and_future",
+      "expected": [
+        "Refrigerate two hours before shaping, keep baking time and all ingredients, do not add future vanilla; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "chill",
+          "title": "Plain dough",
+          "ingredients": [
+            "1 cup flour",
+            "1 cup sugar",
+            "2 eggs"
+          ],
+          "instructions": [
+            "Mix flour, sugar and eggs.",
+            "Shape dough into balls.",
+            "Bake for 10 minutes."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I refrigerated the dough for two hours before shaping it into balls. Next time I might add vanilla.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I refrigerated the dough for two hours before shaping it into balls.",
+                "action": "technique",
+                "timing": "performed",
+                "target": "refrigerate the dough",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Refrigerated the dough for two hours before shaping."
+              },
+              {
+                "id": "2",
+                "source_quote": "Next time I might add vanilla.",
+                "action": "add",
+                "timing": "future",
+                "target": "vanilla",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Might add vanilla."
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "technique_change",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "Shape dough into balls.",
+                "replace": "Refrigerate the dough for two hours before shaping it into balls.\nShape dough into balls.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 145,
+                "prompt_tokens": 766,
+                "total_tokens": 911,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I refrigerated the dough for two hours before shaping it into balls.\",\n      \"action\": \"technique\",\n      \"timing\": \"performed\",\n      \"target\": \"refrigerate the dough\",\n      \"description\": \"Refrigerated the dough for two hours before shaping.\"\n    },\n    {\n      \"id\": \"2\",\n      \"source_quote\": \"Next time I might add vanilla.\",\n      \"action\": \"add\",\n      \"timing\": \"future\",\n      \"target\": \"vanilla\",\n      \"description\": \"Might add vanilla.\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 44,
+                "prompt_tokens": 875,
+                "total_tokens": 919,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"instructions\",\"find\":\"Shape dough into balls.\",\"operation\":\"add_after\",\"add\":\"Refrigerate the dough for two hours before shaping it into balls.\",\"intent_ids\":[\"1\"]}]}"
+            },
+            {
+              "stage": "repair",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 67,
+                "prompt_tokens": 1004,
+                "total_tokens": 1071,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"edits\": [\n  {\n    \"target\": \"instructions\",\n    \"operation\": \"replace\",\n    \"find\": \"Shape dough into balls.\",\n    \"replace\": \"Refrigerate the dough for two hours before shaping it into balls.\\nShape dough into balls.\",\n    \"intent_ids\": [\"1\"]\n  }\n]}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4.1",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 12,
+                "prompt_tokens": 718,
+                "total_tokens": 730,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\": \"faithful\", \"issues\": []}"
+            }
+          ],
+          "repair_feedback": [
+            "Instruction order must implement 'I refrigerated the dough for two hours before shaping it into balls.': place chilling before the actual shaping/baking step."
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "technique_change",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "Shape dough into balls.",
+              "replace": "Refrigerate the dough for two hours before shaping it into balls.\nShape dough into balls.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "chill_enhanced",
+          "original_recipe_id": "chill",
+          "title": "Plain dough (Community Enhanced)",
+          "ingredients": [
+            "1 cup flour",
+            "1 cup sugar",
+            "2 eggs"
+          ],
+          "instructions": [
+            "Mix flour, sugar and eggs.",
+            "Refrigerate the dough for two hours before shaping it into balls.\nShape dough into balls.",
+            "Bake for 10 minutes."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I refrigerated the dough for two hours before shaping it into balls. Next time I might add vanilla.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "technique_change",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "instruction",
+                  "from_text": "Shape dough into balls.",
+                  "to_text": "Refrigerate the dough for two hours before shaping it into balls.\nShape dough into balls.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 1,
+            "change_types": [
+              "technique_change"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:54:07.195616",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "chill_modified",
+            "title": "Plain dough",
+            "ingredients": [
+              "1 cup flour",
+              "1 cup sugar",
+              "2 eggs"
+            ],
+            "instructions": [
+              "Mix flour, sugar and eggs.",
+              "Refrigerate the dough for two hours before shaping it into balls.\nShape dough into balls.",
+              "Bake for 10 minutes."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "instruction",
+              "from_text": "Shape dough into balls.",
+              "to_text": "Refrigerate the dough for two hours before shaping it into balls.\nShape dough into balls.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "new_conflicting_quantities",
+      "expected": [
+        "Conflicting uncertain quantity is withheld with needs_review, original unchanged, no enhanced recipe."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "needs_review",
+        "original": {
+          "recipe_id": "conflict",
+          "title": "Batter",
+          "ingredients": [
+            "1 cup sugar",
+            "2 eggs"
+          ],
+          "instructions": [
+            "Beat eggs and sugar."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used half a cup of sugar. Actually I cannot remember whether I used half a cup or two cups of sugar.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "needs_review",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used half a cup of sugar.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "sugar",
+                "amount_mode": "absolute",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "used half a cup"
+              }
+            ],
+            "unresolved": [
+              "Actually I cannot remember whether I used half a cup or two cups of sugar."
+            ]
+          },
+          "modification": null,
+          "issues": [
+            "Actually I cannot remember whether I used half a cup or two cups of sugar."
+          ],
+          "edit_sources": [],
+          "fidelity_check": null,
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 117,
+                "prompt_tokens": 750,
+                "total_tokens": 867,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used half a cup of sugar.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"sugar\",\n      \"description\": \"used half a cup\",\n      \"amount_mode\": \"absolute\",\n      \"amount\": \"1/2\",\n      \"unit\": \"cup\"\n    }\n  ],\n  \"unresolved\": [\n    \"Actually I cannot remember whether I used half a cup or two cups of sugar.\"\n  ]\n}"
+            }
+          ],
+          "repair_feedback": []
+        },
+        "proposed_modification": null,
+        "consistency_check": null,
+        "enhanced_recipe": null,
+        "result": {
+          "status": "needs_review",
+          "recipe": {
+            "recipe_id": "conflict",
+            "title": "Batter",
+            "ingredients": [
+              "1 cup sugar",
+              "2 eggs"
+            ],
+            "instructions": [
+              "Beat eggs and sugar."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [],
+          "reason": "Actually I cannot remember whether I used half a cup or two cups of sugar.",
+          "failed_edit": null
+        }
+      }
+    }
+  ]
+}

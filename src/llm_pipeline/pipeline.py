@@ -20,7 +20,7 @@ from .enhanced_recipe_generator import EnhancedRecipeGenerator
 from .models import EnhancedRecipe, Recipe, Review
 from .recipe_modifier import RecipeModifier
 from .tweak_extractor import TweakExtractor
-from .consistency import enforce_consistency
+from .workflow import enhance_review
 
 
 class LLMAnalysisPipeline:
@@ -128,6 +128,7 @@ class LLMAnalysisPipeline:
             EnhancedRecipe if successful, None otherwise
         """
         try:
+            self.last_outcome = None
             logger.info(f"Processing recipe file: {recipe_file}")
 
             # Step 0: Load and parse data
@@ -142,45 +143,17 @@ class LLMAnalysisPipeline:
 
             if not any(r.has_modification for r in reviews):
                 logger.warning("No reviews with modifications found")
+                self.last_outcome = {"status": "skipped", "reason": "No eligible reviews"}
                 return None
 
-            # Step 1: Extract modification from one random review
-            logger.info("Step 1: Extracting modification from a single review...")
-            modification, source_review = (
-                self.tweak_extractor.extract_single_modification(reviews, recipe)
-            )
-
-            if not modification or not source_review:
-                logger.warning("No modification could be extracted")
+            import random
+            source_review = random.choice([review for review in reviews if review.has_modification])
+            outcome = enhance_review(recipe, source_review, self.tweak_extractor)
+            self.last_outcome = outcome
+            if outcome["status"] != "applied":
+                logger.warning(f"Recipe withheld: {outcome['status']}; {outcome['result'].reason}")
                 return None
-
-            logger.info(
-                f"Successfully extracted {modification.modification_type} modification"
-            )
-
-            # Step 2: Apply modification to recipe
-            logger.info("Step 2: Applying modification to recipe...")
-            result = self.recipe_modifier.apply_modification(
-                recipe, modification
-            )
-            result, check = enforce_consistency(recipe, result, self.tweak_extractor)
-            if result.status == "failed":
-                logger.warning(f"Modification rejected: {result.reason}; edit={result.failed_edit}; consistency={check}")
-                return None
-            modified_recipe, change_records = result.recipe, result.changes
-
-            logger.info(
-                f"Applied modification: {len(change_records)} total changes made"
-            )
-
-            # Step 3: Generate enhanced recipe with attribution
-            logger.info("Step 3: Generating enhanced recipe with attribution...")
-
-            enhanced_recipe = self.enhanced_generator.generate_enhanced_recipe(
-                recipe, modified_recipe, modification, source_review, change_records
-            )
-
-            logger.info(f"Generated enhanced recipe: {enhanced_recipe.title}")
+            enhanced_recipe = outcome["enhanced_recipe"]
 
             # Save output
             if save_output:

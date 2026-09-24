@@ -30,6 +30,52 @@ OPENAI_API_KEY=your-openai-api-key-here
 
 ## Usage
 
+### Grounded live workflow
+
+Live enhancement now interprets the review before generating edits. `planning`
+contains exact source quotes, performed/future intent classifications, edit-to-intent
+links, source-fidelity verdicts, and model-call/usage records. Supported quantity
+changes use Python fraction arithmetic and are inserted by Python before the model
+plans the remaining edits. Unchanged quantities generate no edit. Generic preparation
+instructions need no model rewrite for quantity-only changes.
+Ambiguous targets, unsupported units/conversions, invalid quotes, missing intent
+coverage, and altered calculated edits are withheld. A separate fidelity audit
+checks the full review before the existing consistency gate. Dependency checks catch
+missing ingredient use, lost preparation steps, changed qualitative amounts, and
+explicit chilling-before-shaping/baking constraints. An invalid plan gets at most
+one complete repair attempt with specific feedback, followed by fresh validation.
+`planning.repair_feedback` records why repair was needed. Unresolved interpretations
+are not repaired by guessing. A final consistency rejection still withholds publication.
+
+The same workflow serves the API and CLI. Default interpretation/edit generation
+uses `gpt-4o-mini`; repair, fidelity and consistency checks use `gpt-4.1` after live
+evaluation exposed repeated repair failures and false rejections with the smaller
+model. Configure them independently with `INTERPRETATION_MODEL`, `REPAIR_MODEL`,
+`FIDELITY_MODEL`, and `CONSISTENCY_MODEL` in `.env`, then
+restart. The older `extract_modification` helper remains for historical evaluation
+scripts; it is not the live publication path.
+
+Top-level live outcomes are `applied`, `skipped` (no performed actionable change),
+`needs_review` (unresolved interpretation, incomplete plan, failed fidelity or
+inconsistent recipe), and `failed` (technical/application failure). Skipped and
+withheld results return the original recipe with no changes and no enhanced recipe.
+Planning/provider failures return HTTP 502; inspect the JSON status for HTTP 200
+responses. CLI callers retain the existing Optional result and can inspect
+`pipeline.last_outcome` for the detailed outcome.
+
+A typical successful request uses two or three planning calls plus one consistency
+call. Semantic repair can add a repair call and a fresh fidelity audit. Each planning
+stage allows one schema-correction retry (maximum eleven calls including consistency),
+no transport retries, and a 45-second per-call timeout. GPT-4.1 checks and repair add
+cost; requests needing repair can take longer. There is no overall request deadline.
+Set a sufficient Postman timeout. Read-only routes and `/preview` remain free;
+`/validate` checks a supplied plan's consistency only, not its source fidelity.
+
+See `evaluation/complex-repair-report.md` for current results and
+`evaluation/grounded-report.md` for the earlier baseline. The gates reduce incorrect
+publication but do not guarantee semantic correctness. Complex reviews can still
+be withheld even when a person could resolve them.
+
 ### Local HTTP API / Postman
 
 From the repository root on Windows:
@@ -74,7 +120,7 @@ application attempts and does not yet distinguish provider error categories.
 Live enhancement now passes a consistency gate before publication. Simple explicit
 addition/removal checks run locally; remaining candidates receive a model audit of
 the final ingredients and instructions. The validator defaults to `gpt-4o-mini`
-(override with `CONSISTENCY_MODEL` in `.env`); extraction stays on `gpt-3.5-turbo`.
+(override with `CONSISTENCY_MODEL` in `.env`); grounded planning defaults to `gpt-4o-mini`.
 This can add one model call and up to 45 seconds per live enhancement. If validation
 fails, times out, or returns invalid output, no enhanced recipe is published.
 
@@ -165,13 +211,14 @@ Original scraped recipes in `data/` directory contain reviews with `has_modifica
 
 ## How It Works
 
-The LLM Analysis Pipeline processes recipes in 3 steps:
+The live API and CLI share the same workflow:
 
-1. **Tweak Extraction**: CLI selects one random review with modifications and uses GPT-3.5-turbo to extract structured changes; the API uses an explicit review selection
-2. **Recipe Modification**: Applies changes to a copy using unique exact targets and rejects the entire plan if an edit fails
-3. **Enhanced Recipe Generation**: Creates enhanced version with full citation tracking back to source review
+1. **Interpretation**: Read the full selected review, separate performed changes from future suggestions, and retain exact supporting quotes. The CLI selects a random flagged review; the API accepts an explicit review selection or text.
+2. **Planning**: Calculate supported ingredient quantities in Python and generate edits linked to the interpreted changes. Reject ambiguous targets and incomplete plans.
+3. **Validation**: Apply exact edits to a copy, audit fidelity to the original review, and check that ingredients and instructions agree.
+4. **Publication**: Produce an enhanced recipe with source attribution only when all checks pass. Otherwise return the original recipe with a skipped, needs_review, or failed status.
 
-Each run produces one enhanced recipe per original recipe, with complete attribution showing exactly what changed and why.
+The default interpretation model is GPT-4o-mini; repair and audits use GPT-4.1. See the grounded workflow section above for model settings, limits, and remaining limitations.
 
 ## Development
 

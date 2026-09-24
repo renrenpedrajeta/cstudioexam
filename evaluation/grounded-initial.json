@@ -1,0 +1,682 @@
+{
+  "created_at": "2026-09-24T08:19:15.594741+00:00",
+  "interpretation_model": "gpt-3.5-turbo",
+  "fidelity_model": "gpt-4o-mini",
+  "cases": [
+    {
+      "id": "cookie_cinnamon",
+      "expected": [
+        "White sugar remains 1 cup; brown sugar becomes 0.5 cup; flour becomes 2.5 cups.",
+        "Preserve tiny dash of cinnamon without inventing numeric quantity; include cinnamon in mixing instructions.",
+        "All other content preserved."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "needs_review",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I just made these and 😍😋!!!! Changes- used a whole cup of white sugar and 1/2 c of brown (because it's what I had) and 1/2 c less flour after reading some other reviews, and added a tiny dash of cinnamon. They are phenomenal! Crispy edges and gooey center. My husband works from home and he can't stop coming out of his office and trying them!!!! HUGE hit and will be my go to. Thank you!!",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "needs_review",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "used a whole cup of white sugar",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "absolute",
+                "amount": "1",
+                "unit": "cup",
+                "description": "Increased white sugar to 1 cup"
+              },
+              {
+                "id": "2",
+                "source_quote": "1/2 c of brown",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "brown sugar",
+                "amount_mode": "absolute",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "Used 1/2 cup of brown sugar"
+              },
+              {
+                "id": "3",
+                "source_quote": "1/2 c less flour",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "all-purpose flour",
+                "amount_mode": "subtract",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "Used 1/2 cup less flour"
+              },
+              {
+                "id": "4",
+                "source_quote": "added a tiny dash of cinnamon",
+                "action": "add",
+                "timing": "performed",
+                "target": "cinnamon",
+                "amount_mode": null,
+                "amount": null,
+                "unit": null,
+                "description": "Added a tiny dash of cinnamon"
+              }
+            ],
+            "unresolved": [
+              "Different unspecified frosting"
+            ]
+          },
+          "modification": null,
+          "issues": [
+            "Different unspecified frosting"
+          ],
+          "edit_sources": [],
+          "fidelity_check": null,
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-3.5-turbo",
+              "usage": {
+                "completion_tokens": 337,
+                "prompt_tokens": 1069,
+                "total_tokens": 1406,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            }
+          ]
+        },
+        "proposed_modification": null,
+        "consistency_check": null,
+        "enhanced_recipe": null,
+        "result": {
+          "status": "needs_review",
+          "recipe": {
+            "recipe_id": "10813",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1 cup white sugar",
+              "1 cup packed brown sugar",
+              "2 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour, chocolate chips, and walnuts.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [],
+          "reason": "Different unspecified frosting",
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "cookie_nuts",
+      "expected": [
+        "Remove walnuts ingredient and walnuts from mixing instruction; preserve flour and chocolate chips."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "needs_review",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I omitted the walnuts entirely. Everything else stayed the same.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "needs_review",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I omitted the walnuts entirely.",
+                "action": "remove",
+                "timing": "performed",
+                "target": "walnuts",
+                "amount_mode": "absolute",
+                "amount": "1 cup",
+                "unit": null,
+                "description": "Omitted walnuts entirely"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": null,
+          "issues": [
+            "The candidate recipe still includes 'walnuts' in the instructions despite being omitted from the ingredients."
+          ],
+          "edit_sources": [],
+          "fidelity_check": {
+            "status": "needs_review",
+            "issues": [
+              "The candidate recipe still includes 'walnuts' in the instructions despite being omitted from the ingredients."
+            ]
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-3.5-turbo",
+              "usage": {
+                "completion_tokens": 95,
+                "prompt_tokens": 980,
+                "total_tokens": 1075,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-3.5-turbo",
+              "usage": {
+                "completion_tokens": 47,
+                "prompt_tokens": 946,
+                "total_tokens": 993,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4o-mini",
+              "usage": {
+                "completion_tokens": 29,
+                "prompt_tokens": 1045,
+                "total_tokens": 1074,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            }
+          ]
+        },
+        "proposed_modification": null,
+        "consistency_check": null,
+        "enhanced_recipe": null,
+        "result": {
+          "status": "needs_review",
+          "recipe": {
+            "recipe_id": "10813",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1 cup white sugar",
+              "1 cup packed brown sugar",
+              "2 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour, chocolate chips, and walnuts.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [],
+          "reason": "The candidate recipe still includes 'walnuts' in the instructions despite being omitted from the ingredients.",
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "cookie_two_changes",
+      "expected": [
+        "White sugar 0.5 cup; eggs 3; everything else unchanged."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1 cup white sugar",
+            "1 cup packed brown sugar",
+            "2 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "rating": {
+            "value": "4.6",
+            "count": "19353"
+          }
+        },
+        "source_review": {
+          "text": "I used half a cup of white sugar instead of one cup, and three eggs instead of two.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used half a cup of white sugar instead of one cup",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "white sugar",
+                "amount_mode": "multiply",
+                "amount": "1/2",
+                "unit": "cup",
+                "description": "Reduced white sugar from 1 cup to 1/2 cup"
+              },
+              {
+                "id": "2",
+                "source_quote": "three eggs instead of two",
+                "action": "add",
+                "timing": "performed",
+                "target": "eggs",
+                "amount_mode": null,
+                "amount": "1",
+                "unit": "count",
+                "description": "Added an extra egg, using 3 eggs instead of 2"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 cup white sugar",
+                "replace": "1/2 cup white sugar",
+                "add": null
+              },
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "2 eggs",
+                "replace": "3 eggs",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "2"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-3.5-turbo",
+              "usage": {
+                "completion_tokens": 191,
+                "prompt_tokens": 987,
+                "total_tokens": 1178,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-3.5-turbo",
+              "usage": {
+                "completion_tokens": 100,
+                "prompt_tokens": 1086,
+                "total_tokens": 1186,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4o-mini",
+              "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 1197,
+                "total_tokens": 1206,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              }
+            }
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 cup white sugar",
+              "replace": "1/2 cup white sugar",
+              "add": null
+            },
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "2 eggs",
+              "replace": "3 eggs",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "10813_enhanced",
+          "original_recipe_id": "10813",
+          "title": "Best Chocolate Chip Cookies (Community Enhanced)",
+          "ingredients": [
+            "1 cup butter, softened",
+            "1/2 cup white sugar",
+            "1 cup packed brown sugar",
+            "3 eggs",
+            "2 teaspoons vanilla extract",
+            "1 teaspoon baking soda",
+            "2 teaspoons hot water",
+            "0.5 teaspoon salt",
+            "3 cups all-purpose flour",
+            "2 cups semisweet chocolate chips",
+            "1 cup chopped walnuts"
+          ],
+          "instructions": [
+            "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+            "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+            "Beat in eggs, one at a time, then stir in vanilla.",
+            "Dissolve baking soda in hot water. Add to batter along with salt.",
+            "Stir in flour, chocolate chips, and walnuts.",
+            "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+            "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+            "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+            "Store in an airtight container or serve immediately and enjoy!"
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used half a cup of white sugar instead of one cup, and three eggs instead of two.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 cup white sugar",
+                  "to_text": "1/2 cup white sugar",
+                  "operation": "replace"
+                },
+                {
+                  "type": "ingredient",
+                  "from_text": "2 eggs",
+                  "to_text": "3 eggs",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 2,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+          "servings": "48",
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:19:39.796962",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "10813_modified",
+            "title": "Best Chocolate Chip Cookies",
+            "ingredients": [
+              "1 cup butter, softened",
+              "1/2 cup white sugar",
+              "1 cup packed brown sugar",
+              "3 eggs",
+              "2 teaspoons vanilla extract",
+              "1 teaspoon baking soda",
+              "2 teaspoons hot water",
+              "0.5 teaspoon salt",
+              "3 cups all-purpose flour",
+              "2 cups semisweet chocolate chips",
+              "1 cup chopped walnuts"
+            ],
+            "instructions": [
+              "Gather your ingredients, making sure your butter is softened, and your eggs are room temperature.",
+              "Preheat the oven to 350 degrees F (175 degrees C). Beat butter, white sugar, and brown sugar with an electric mixer in a large bowl until smooth.",
+              "Beat in eggs, one at a time, then stir in vanilla.",
+              "Dissolve baking soda in hot water. Add to batter along with salt.",
+              "Stir in flour, chocolate chips, and walnuts.",
+              "Drop spoonfuls of dough 2 inches apart onto ungreased baking sheets.",
+              "Bake in the preheated oven until edges are nicely browned, about 10 minutes.",
+              "Cool on the baking sheets briefly before removing to a wire rack to cool completely.",
+              "Store in an airtight container or serve immediately and enjoy!"
+            ],
+            "description": "This classic chocolate chip cookie recipe makes deliciously buttery cookies with crisp edges, chewy middles, and gooey chocolate chips in every bite.",
+            "servings": "48",
+            "rating": {
+              "value": "4.6",
+              "count": "19353"
+            }
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 cup white sugar",
+              "to_text": "1/2 cup white sugar",
+              "operation": "replace"
+            },
+            {
+              "type": "ingredient",
+              "from_text": "2 eggs",
+              "to_text": "3 eggs",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    }
+  ]
+}

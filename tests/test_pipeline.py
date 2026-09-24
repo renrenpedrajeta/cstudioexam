@@ -6,6 +6,7 @@ from unittest.mock import Mock, patch
 
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 from llm_pipeline.models import ModificationObject, Review
+from llm_pipeline.grounded import PlanningResult
 from llm_pipeline.pipeline import LLMAnalysisPipeline
 from llm_pipeline.consistency import ConsistencyCheck
 
@@ -17,6 +18,8 @@ class PipelineReplacementTests(unittest.TestCase):
             with self.subTest(find=find), TemporaryDirectory() as output_dir:
                 with patch("llm_pipeline.pipeline.TweakExtractor") as extractor:
                     pipeline = LLMAnalysisPipeline(output_dir=output_dir)
+                    extractor.return_value.plan_review.side_effect = lambda *_: PlanningResult(
+                        status="ready", modification=extractor.return_value.extract_single_modification.return_value[0])
                     extractor.return_value.extract_single_modification.return_value = (
                         ModificationObject(modification_type="quantity_adjustment", reasoning="Test", edits=[
                             {"target": "ingredients", "find": find, "replace": replacement}]),
@@ -37,6 +40,8 @@ class PipelineReplacementTests(unittest.TestCase):
             "llm_pipeline.consistency.check_consistency", return_value=ConsistencyCheck(status="consistent")
         ):
             pipeline = LLMAnalysisPipeline(output_dir=output_dir)
+            extractor.return_value.plan_review.side_effect = lambda *_: PlanningResult(
+                status="ready", modification=extractor.return_value.extract_single_modification.return_value[0])
             extractor.return_value.extract_single_modification.return_value = (
                 ModificationObject(modification_type="quantity_adjustment", reasoning="Less sugar", edits=[
                     {"target": "ingredients", "find": "1 cup sugar", "replace": "0.5 cup sugar"}]),
@@ -59,6 +64,8 @@ class PipelineReplacementTests(unittest.TestCase):
             return_value=ConsistencyCheck(status="inconsistent", issues=["Walnuts remain in preparation"])
         ):
             pipeline = LLMAnalysisPipeline(output_dir=output_dir)
+            extractor.return_value.plan_review.side_effect = lambda *_: PlanningResult(
+                status="ready", modification=extractor.return_value.extract_single_modification.return_value[0])
             extractor.return_value.extract_single_modification.return_value = (
                 ModificationObject(modification_type="removal", reasoning="Omit walnuts", edits=[
                     {"target": "ingredients", "operation": "remove", "find": "1 cup walnuts"}]),

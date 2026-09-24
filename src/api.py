@@ -8,11 +8,11 @@ from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from llm_pipeline.enhanced_recipe_generator import EnhancedRecipeGenerator
 from llm_pipeline.models import ModificationObject, Recipe, Review
 from llm_pipeline.recipe_modifier import RecipeModifier
 from llm_pipeline.tweak_extractor import TweakExtractor
 from llm_pipeline.consistency import enforce_consistency
+from llm_pipeline.workflow import enhance_review
 
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / ".env")
@@ -98,19 +98,9 @@ def create_app(data_dir: Path = ROOT / "data") -> FastAPI:
             review = Review(text=request.review_text)
         # An explicit caller selection bypasses the scraper's heuristic flag.
         review = review.model_copy(update={"has_modification": True})
-        plan = extractor.extract_modification(review, original)
-        if plan is None:
-            raise HTTPException(502, detail={"code": "extraction_failed", "message": "The provider failed or returned invalid output. Check the server logs; no edits were applied."})
-        result = RecipeModifier().apply_modification(original, plan)
-        result, check = enforce_consistency(original, result, extractor)
-        response = {"mode": "live", "status": result.status, "original": original,
-                    "source_review": review, "proposed_modification": plan,
-                    "result": result, "consistency_check": check,
-                    "enhanced_recipe": None}
-        if result.status == "applied":
-            response["enhanced_recipe"] = EnhancedRecipeGenerator().generate_enhanced_recipe(
-                original, result.recipe, plan, review, result.changes
-            )
+        response = enhance_review(original, review, extractor)
+        if response["planning"].status == "failed":
+            raise HTTPException(502, detail={"code": "planning_failed", "issues": response["planning"].issues})
         return response
 
     @app.post("/recipes/{recipe_id}/validate")

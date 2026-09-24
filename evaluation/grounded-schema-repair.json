@@ -1,0 +1,559 @@
+{
+  "created_at": "2026-09-24T08:24:52.506797+00:00",
+  "interpretation_model": "gpt-4o-mini",
+  "fidelity_model": "gpt-4o-mini",
+  "cases": [
+    {
+      "id": "heldout_soup_salt",
+      "expected": [
+        "Salt 1/2 teaspoon; broth and instruction preserved; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "salt",
+          "title": "Vegetable soup",
+          "ingredients": [
+            "1 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in salt."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used 1/2 teaspoon of salt instead of 1 teaspoon.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "salt",
+                "amount_mode": "subtract",
+                "amount": "1/2",
+                "unit": "teaspoon",
+                "description": "reduce the amount of salt"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 teaspoon salt",
+                "replace": "1/2 teaspoon salt",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "stir in salt.",
+                "replace": "stir in 1/2 teaspoon salt.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 107,
+                "prompt_tokens": 750,
+                "total_tokens": 857,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"description\": \"reduce the amount of salt\",\n      \"amount_mode\": \"substract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 2,
+              "usage": {
+                "completion_tokens": 106,
+                "prompt_tokens": 909,
+                "total_tokens": 1015,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"description\": \"reduce the amount of salt\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 67,
+                "prompt_tokens": 753,
+                "total_tokens": 820,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"edits\":[{\"target\":\"ingredients\",\"operation\":\"replace\",\"find\":\"1 teaspoon salt\",\"replace\":\"1/2 teaspoon salt\",\"intent_ids\":[\"1\"]},{\"target\":\"instructions\",\"operation\":\"replace\",\"find\":\"stir in salt.\",\"replace\":\"stir in 1/2 teaspoon salt.\",\"intent_ids\":[\"1\"]}]}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 635,
+                "total_tokens": 644,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\":\"faithful\",\"issues\":[]}"
+            }
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 teaspoon salt",
+              "replace": "1/2 teaspoon salt",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "stir in salt.",
+              "replace": "stir in 1/2 teaspoon salt.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "salt_enhanced",
+          "original_recipe_id": "salt",
+          "title": "Vegetable soup (Community Enhanced)",
+          "ingredients": [
+            "1/2 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in 1/2 teaspoon salt."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 teaspoon salt",
+                  "to_text": "1/2 teaspoon salt",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Heat broth and stir in salt.",
+                  "to_text": "Heat broth and stir in 1/2 teaspoon salt.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 2,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:24:59.216193",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "salt_modified",
+            "title": "Vegetable soup",
+            "ingredients": [
+              "1/2 teaspoon salt",
+              "2 cups broth"
+            ],
+            "instructions": [
+              "Heat broth and stir in 1/2 teaspoon salt."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 teaspoon salt",
+              "to_text": "1/2 teaspoon salt",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Heat broth and stir in salt.",
+              "to_text": "Heat broth and stir in 1/2 teaspoon salt.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    },
+    {
+      "id": "repeat_soup_salt",
+      "expected": [
+        "Salt 1/2 teaspoon; broth and instruction preserved; applied."
+      ],
+      "outcome": {
+        "mode": "live",
+        "status": "applied",
+        "original": {
+          "recipe_id": "salt",
+          "title": "Vegetable soup",
+          "ingredients": [
+            "1 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in salt."
+          ],
+          "description": null,
+          "servings": null,
+          "rating": null
+        },
+        "source_review": {
+          "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+          "rating": null,
+          "username": null,
+          "has_modification": true
+        },
+        "planning": {
+          "status": "ready",
+          "interpretation": {
+            "changes": [
+              {
+                "id": "1",
+                "source_quote": "I used 1/2 teaspoon of salt instead of 1 teaspoon.",
+                "action": "quantity",
+                "timing": "performed",
+                "target": "salt",
+                "amount_mode": "subtract",
+                "amount": "1/2",
+                "unit": "teaspoon",
+                "description": "reduce the amount of salt"
+              }
+            ],
+            "unresolved": []
+          },
+          "modification": {
+            "modification_type": "quantity_adjustment",
+            "reasoning": "Changes supported by the source review.",
+            "edits": [
+              {
+                "target": "ingredients",
+                "operation": "replace",
+                "find": "1 teaspoon salt",
+                "replace": "1/2 teaspoon salt",
+                "add": null
+              },
+              {
+                "target": "instructions",
+                "operation": "replace",
+                "find": "stir in salt.",
+                "replace": "stir in 1/2 teaspoon salt.",
+                "add": null
+              }
+            ]
+          },
+          "issues": [],
+          "edit_sources": [
+            [
+              "1"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "fidelity_check": {
+            "status": "faithful",
+            "issues": []
+          },
+          "calls": [
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 107,
+                "prompt_tokens": 750,
+                "total_tokens": 857,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"description\": \"reduce the amount of salt\",\n      \"amount_mode\": \"substract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "interpret",
+              "model": "gpt-4o-mini",
+              "attempt": 2,
+              "usage": {
+                "completion_tokens": 106,
+                "prompt_tokens": 909,
+                "total_tokens": 1015,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"changes\": [\n    {\n      \"id\": \"1\",\n      \"source_quote\": \"I used 1/2 teaspoon of salt instead of 1 teaspoon.\",\n      \"action\": \"quantity\",\n      \"timing\": \"performed\",\n      \"target\": \"salt\",\n      \"description\": \"reduce the amount of salt\",\n      \"amount_mode\": \"subtract\",\n      \"amount\": \"1/2\",\n      \"unit\": \"teaspoon\"\n    }\n  ],\n  \"unresolved\": []\n}"
+            },
+            {
+              "stage": "edits",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 115,
+                "prompt_tokens": 753,
+                "total_tokens": 868,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\n  \"edits\": [\n    {\n      \"target\": \"ingredients\",\n      \"operation\": \"replace\",\n      \"find\": \"1 teaspoon salt\",\n      \"replace\": \"1/2 teaspoon salt\",\n      \"intent_ids\": [\n        \"1\"\n      ]\n    },\n    {\n      \"target\": \"instructions\",\n      \"operation\": \"replace\",\n      \"find\": \"stir in salt.\",\n      \"replace\": \"stir in 1/2 teaspoon salt.\",\n      \"intent_ids\": [\n        \"1\"\n      ]\n    }\n  ]\n}"
+            },
+            {
+              "stage": "fidelity",
+              "model": "gpt-4o-mini",
+              "attempt": 1,
+              "usage": {
+                "completion_tokens": 9,
+                "prompt_tokens": 635,
+                "total_tokens": 644,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cached_tokens": 0
+                }
+              },
+              "raw_output": "{\"status\":\"faithful\",\"issues\":[]}"
+            }
+          ]
+        },
+        "proposed_modification": {
+          "modification_type": "quantity_adjustment",
+          "reasoning": "Changes supported by the source review.",
+          "edits": [
+            {
+              "target": "ingredients",
+              "operation": "replace",
+              "find": "1 teaspoon salt",
+              "replace": "1/2 teaspoon salt",
+              "add": null
+            },
+            {
+              "target": "instructions",
+              "operation": "replace",
+              "find": "stir in salt.",
+              "replace": "stir in 1/2 teaspoon salt.",
+              "add": null
+            }
+          ]
+        },
+        "consistency_check": {
+          "status": "consistent",
+          "issues": []
+        },
+        "enhanced_recipe": {
+          "recipe_id": "salt_enhanced",
+          "original_recipe_id": "salt",
+          "title": "Vegetable soup (Community Enhanced)",
+          "ingredients": [
+            "1/2 teaspoon salt",
+            "2 cups broth"
+          ],
+          "instructions": [
+            "Heat broth and stir in 1/2 teaspoon salt."
+          ],
+          "modifications_applied": [
+            {
+              "source_review": {
+                "text": "I used 1/2 teaspoon of salt instead of 1 teaspoon. Everything else stayed the same.",
+                "reviewer": null,
+                "rating": null
+              },
+              "modification_type": "quantity_adjustment",
+              "reasoning": "Changes supported by the source review.",
+              "changes_made": [
+                {
+                  "type": "ingredient",
+                  "from_text": "1 teaspoon salt",
+                  "to_text": "1/2 teaspoon salt",
+                  "operation": "replace"
+                },
+                {
+                  "type": "instruction",
+                  "from_text": "Heat broth and stir in salt.",
+                  "to_text": "Heat broth and stir in 1/2 teaspoon salt.",
+                  "operation": "replace"
+                }
+              ]
+            }
+          ],
+          "enhancement_summary": {
+            "total_changes": 2,
+            "change_types": [
+              "quantity_adjustment"
+            ],
+            "expected_impact": "Changes supported by the source review."
+          },
+          "description": null,
+          "servings": null,
+          "prep_time": null,
+          "cook_time": null,
+          "total_time": null,
+          "created_at": "2026-09-24T16:25:05.535501",
+          "pipeline_version": "1.0.0"
+        },
+        "result": {
+          "status": "applied",
+          "recipe": {
+            "recipe_id": "salt_modified",
+            "title": "Vegetable soup",
+            "ingredients": [
+              "1/2 teaspoon salt",
+              "2 cups broth"
+            ],
+            "instructions": [
+              "Heat broth and stir in 1/2 teaspoon salt."
+            ],
+            "description": null,
+            "servings": null,
+            "rating": null
+          },
+          "changes": [
+            {
+              "type": "ingredient",
+              "from_text": "1 teaspoon salt",
+              "to_text": "1/2 teaspoon salt",
+              "operation": "replace"
+            },
+            {
+              "type": "instruction",
+              "from_text": "Heat broth and stir in salt.",
+              "to_text": "Heat broth and stir in 1/2 teaspoon salt.",
+              "operation": "replace"
+            }
+          ],
+          "reason": null,
+          "failed_edit": null
+        }
+      }
+    }
+  ]
+}

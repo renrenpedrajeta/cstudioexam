@@ -1,0 +1,26 @@
+[
+  {
+    "id": "new_cocoa_and_sugar",
+    "recipe": {"recipe_id": "cocoa", "title": "Simple batter", "ingredients": ["1 cup sugar", "2 cups flour", "2 eggs"], "instructions": ["Beat eggs and sugar. Stir in flour.", "Bake for 20 minutes."]},
+    "review_text": "I used 3/4 cup sugar instead of a cup and added a pinch of cocoa powder to the batter.",
+    "expected": ["Sugar becomes 3/4 cup; pinch of cocoa powder appears in ingredients and preparation; flour, eggs and baking time unchanged; applied."]
+  },
+  {
+    "id": "new_water_dependency",
+    "recipe": {"recipe_id": "water", "title": "Small batch cookies", "ingredients": ["1 teaspoon baking soda", "2 teaspoons hot water", "1/2 teaspoon salt", "2 cups flour", "2 eggs"], "instructions": ["Beat eggs. Stir in flour.", "Dissolve baking soda in hot water. Add to batter along with salt.", "Scoop dough onto a tray.", "Bake for 12 minutes."]},
+    "review_text": "I omitted the water, used 3 eggs instead of 2, and chilled the dough for 30 minutes before scooping and baking.",
+    "expected": ["Water removed from both ingredients and use; baking soda and salt retain preparation steps; eggs become 3; chill 30 minutes before scooping and baking; applied."]
+  },
+  {
+    "id": "new_technique_and_future",
+    "recipe": {"recipe_id": "chill", "title": "Plain dough", "ingredients": ["1 cup flour", "1 cup sugar", "2 eggs"], "instructions": ["Mix flour, sugar and eggs.", "Shape dough into balls.", "Bake for 10 minutes."]},
+    "review_text": "I refrigerated the dough for two hours before shaping it into balls. Next time I might add vanilla.",
+    "expected": ["Refrigerate two hours before shaping, keep baking time and all ingredients, do not add future vanilla; applied."]
+  },
+  {
+    "id": "new_conflicting_quantities",
+    "recipe": {"recipe_id": "conflict", "title": "Batter", "ingredients": ["1 cup sugar", "2 eggs"], "instructions": ["Beat eggs and sugar."]},
+    "review_text": "I used half a cup of sugar. Actually I cannot remember whether I used half a cup or two cups of sugar.",
+    "expected": ["Conflicting uncertain quantity is withheld with needs_review, original unchanged, no enhanced recipe."]
+  }
+]
